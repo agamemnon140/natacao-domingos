@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plano de natação · domingos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:wght@500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#08222F; --tile:#0E3245; --tile2:#14435C; --line:#1E5570;
+  --chalk:#EAF2F4; --mist:#7FA6B6; --turq:#2FC6B4; --amber:#E9A63C; --lane:#EE4B3C;
+  --pad:clamp(16px,4vw,28px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--deep);color:var(--chalk);font-family:"Barlow",system-ui,sans-serif;font-size:16px;line-height:1.5}
+.wrap{max-width:760px;margin:0 auto;padding:0 var(--pad) 72px}
+
+h1,h2,h3{font-family:"Archivo Black",sans-serif;font-weight:400;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(34px,10vw,58px);line-height:.95;text-transform:uppercase}
+h2{font-size:clamp(19px,4.6vw,24px);text-transform:uppercase}
+h3{font-size:clamp(17px,4.2vw,20px)}
+.eyebrow{font-family:"Barlow Condensed",sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.22em;font-size:12px;color:var(--turq);margin:0 0 14px}
+
+header.top{padding:clamp(44px,11vw,84px) 0 clamp(28px,7vw,44px)}
+.thesis{font-size:clamp(17px,4.3vw,20px);color:var(--mist);max-width:46ch;margin:20px 0 0}
+.thesis b{color:var(--chalk);font-weight:600}
+.rule{height:1px;background:var(--line);border:0;margin:0}
+
+section{padding:clamp(34px,8vw,54px) 0 0}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:22px;flex-wrap:wrap}
+.sec-head .tag{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}
+
+/* calculadora */
+.calc{background:var(--tile);border:1px solid var(--line);border-radius:3px;padding:var(--pad)}
+.calc-in{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.field{flex:1 1 130px;min-width:130px}
+.field label{display:block;font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);margin-bottom:6px}
+.field input{width:100%;background:var(--deep);color:var(--chalk);border:1px solid var(--line);border-radius:2px;padding:11px 12px;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:26px;font-variant-numeric:tabular-nums}
+.field input:focus-visible{outline:2px solid var(--turq);outline-offset:1px;border-color:var(--turq)}
+.field input::placeholder{color:#3C6E86}
+.calc-out{border-top:1px solid var(--line);padding-top:18px}
+.css-big{display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap}
+.css-big .v{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:clamp(40px,12vw,62px);line-height:.9;color:var(--turq);font-variant-numeric:tabular-nums}
+.css-big .u{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--mist);padding-bottom:6px}
+.zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(78px,1fr));gap:1px;background:var(--line);margin-top:18px;border:1px solid var(--line)}
+.zone{background:var(--tile2);padding:10px 8px}
+.zone .k{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mist);display:block}
+.zone .t{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:20px;font-variant-numeric:tabular-nums}
+.note-s{font-size:14px;color:var(--mist);margin:16px 0 0}
+.note-s b{color:var(--chalk)}
+.note-s code{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:16px;color:var(--chalk);background:var(--deep);padding:1px 6px;border-radius:2px}
+.warn{color:var(--lane);font-size:14px;margin:12px 0 0;display:none}
+.warn.on{display:block}
+
+/* glossário */
+.gloss{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.g{background:var(--tile);padding:14px var(--pad) 15px;display:grid;grid-template-columns:1fr;gap:3px}
+@media(min-width:560px){.g{grid-template-columns:170px 1fr;gap:18px;align-items:baseline}}
+.g dt{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:19px;color:var(--turq);font-variant-numeric:tabular-nums}
+.g dd{margin:0;font-size:15px;color:#C4D8DE}
+.g dd b{color:var(--chalk);font-weight:600}
+
+/* descansos */
+.rests{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+.r{background:var(--tile);padding:13px var(--pad);display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.r .amt{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:22px;color:var(--amber);min-width:92px;font-variant-numeric:tabular-nums}
+.r .txt{font-size:15px;color:#C4D8DE;flex:1 1 200px}
+.callout{border-left:3px solid var(--turq);background:var(--tile);padding:16px var(--pad);margin-top:20px}
+.callout h3{font-size:16px;text-transform:uppercase;letter-spacing:.02em;margin-bottom:8px}
+.callout p{margin:0 0 9px;font-size:15px;color:#C4D8DE}
+.callout p:last-child{margin-bottom:0}
+.callout b{color:var(--chalk)}
+
+/* sessões */
+.sess{border:1px solid var(--line);border-radius:3px;background:var(--tile);margin-bottom:16px;overflow:hidden}
+.sess-head{display:flex;align-items:center;gap:14px;padding:16px var(--pad) 14px}
+.sess-no{font-family:"Archivo Black",sans-serif;font-size:30px;line-height:1;color:var(--deep);background:var(--mist);width:52px;height:46px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;border-radius:2px}
+.sess.key .sess-no{background:var(--lane);color:#fff}
+.sess.hold .sess-no{background:var(--amber);color:var(--deep)}
+.sess-meta{flex:1 1 auto;min-width:0}
+.sess-meta .when{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mist)}
+.sess-vol{text-align:right;flex:0 0 auto}
+.sess-vol b{display:block;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:26px;line-height:1;font-variant-numeric:tabular-nums}
+.sess-vol span{font-family:"Barlow Condensed",sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist)}
+
+.strip{display:flex;gap:2px;height:11px;margin:0 var(--pad) 4px}
+.strip i{display:block;border-radius:1px;min-width:3px}
+.strip i.warm{background:#2C5E76}
+.strip i.drill{background:repeating-linear-gradient(135deg,#2FC6B4 0 3px,#1B4E63 3px 6px)}
+.strip i.main{background:var(--turq)}
+.strip i.back{background:var(--amber)}
+.strip i.test{background:var(--lane)}
+.strip i.rest{background:#0A2A3A;min-width:9px;max-width:9px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;padding:6px var(--pad) 12px;font-family:"Barlow Condensed",sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mist)}
+.legend span{display:flex;align-items:center;gap:5px}
+.legend b{width:14px;height:8px;display:inline-block;border-radius:1px}
+
+.blocks{border-top:1px solid var(--line)}
+.bhead{display:flex;gap:12px;padding:7px var(--pad);background:rgba(8,34,47,.55);border-bottom:1px solid var(--line);font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist)}
+.bhead .h1c{flex:0 0 74px}
+.bhead .h2c{flex:1 1 auto}
+.bhead .h3c{flex:0 0 96px;text-align:right}
+.b{display:flex;gap:12px;align-items:baseline;padding:11px var(--pad);flex-wrap:wrap}
+.b .d{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:19px;flex:0 0 74px;font-variant-numeric:tabular-nums}
+.b .w{flex:1 1 150px;font-size:15px;color:#C7DAE0}
+.b .w em{font-style:normal;color:var(--mist)}
+.b .p{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:19px;color:var(--turq);font-variant-numeric:tabular-nums}
+.b .rs{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:16px;color:var(--turq);flex:0 0 96px;text-align:right;font-variant-numeric:tabular-nums}
+.b .rs.none{color:#3F708A}
+.b.is-test{background:rgba(238,75,60,.08)}
+.b.is-back .d{color:var(--amber)}
+
+/* descanso entre blocos */
+.gap{display:flex;gap:12px;align-items:center;padding:6px var(--pad);background:rgba(233,166,60,.07);border-top:1px dashed rgba(233,166,60,.3);border-bottom:1px dashed rgba(233,166,60,.3)}
+.gap .ga{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:16px;color:var(--amber);flex:0 0 74px;font-variant-numeric:tabular-nums}
+.gap .gt{font-size:13px;color:#9CBAC6;flex:1 1 auto}
+.gap.long{background:rgba(233,166,60,.13)}
+.gap.zero{background:rgba(8,34,47,.35);border-color:rgba(30,85,112,.4)}
+.gap.zero .ga{color:#4E7E96}
+
+.foot{padding:13px var(--pad) 16px;border-top:1px solid var(--line);background:rgba(8,34,47,.5)}
+.foot p{margin:0 0 6px;font-size:14px;color:#B3CBD3}
+.foot p:last-child{margin-bottom:0}
+.foot .lab{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist);margin-right:7px}
+.foot b{color:var(--chalk)}
+
+.brake{border:1px solid var(--lane);border-radius:3px;padding:var(--pad);background:rgba(238,75,60,.07)}
+.brake h2{color:var(--lane)}
+.brake ul{margin:14px 0 0;padding-left:20px}
+.brake li{margin-bottom:9px;font-size:15px;color:#DCE9EC}
+.brake li b{color:#fff}
+footer.end{padding:44px 0 0;color:var(--mist);font-size:14px}
+
+@media (prefers-reduced-motion:no-preference){
+  .strip i{animation:grow .5s cubic-bezier(.2,.7,.3,1) both;transform-origin:left center}
+  @keyframes grow{from{transform:scaleX(0);opacity:0}to{transform:scaleX(1);opacity:1}}
+}
+@media print{
+  body{background:#fff;color:#000}
+  .sess,.calc,.g,.r,.brake,.callout{background:#fff;border-color:#999;break-inside:avoid}
+  .sess-no{background:#333;color:#fff}
+  .b .p,.b .rs{color:#000}.gap{background:#f0f0f0}.gap .ga,.gap .gt{color:#000}
+}
+
+/* ===== barra de calibragem compacta ===== */
+.calcbar{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;background:var(--tile);border:1px solid var(--line);border-radius:3px;padding:12px var(--pad)}
+.calcbar .field{flex:0 1 108px;min-width:96px}
+.calcbar .field input{font-size:21px;padding:8px 10px}
+.calcbar .res{flex:1 1 150px;display:flex;align-items:flex-end;gap:8px;padding-bottom:2px}
+.calcbar .res .v{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:32px;line-height:1;color:var(--turq);font-variant-numeric:tabular-nums}
+.calcbar .res .u{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);padding-bottom:4px}
+.calcbar .zbtn{flex:0 0 auto;background:none;border:1px solid var(--line);color:var(--mist);font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:8px 12px;border-radius:2px;cursor:pointer}
+.calcbar .zbtn:hover{color:var(--chalk);border-color:var(--turq)}
+.zwrap{display:none;margin-top:10px}
+.zwrap.on{display:block}
+
+/* ===== seletor de sessão ===== */
+.picker{position:sticky;top:0;z-index:20;background:var(--deep);padding:10px 0 8px;margin:0 calc(var(--pad)*-1);border-bottom:1px solid var(--line)}
+.picker-scroll{display:flex;gap:6px;overflow-x:auto;padding:0 var(--pad);scrollbar-width:none}
+.picker-scroll::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;background:var(--tile);border:1px solid var(--line);border-radius:3px;padding:7px 0 6px;width:56px;cursor:pointer;color:var(--mist);text-align:center;font-family:"Barlow Condensed",sans-serif;line-height:1.05}
+.tab .tn{display:block;font-weight:700;font-size:21px;font-variant-numeric:tabular-nums;color:var(--chalk)}
+.tab .tv{display:block;font-weight:600;font-size:10px;letter-spacing:.06em}
+.tab .bar{display:block;height:3px;margin:5px auto 0;background:var(--line);border-radius:2px}
+.tab:hover{border-color:var(--turq)}
+.tab[aria-selected="true"]{background:var(--turq);border-color:var(--turq);color:var(--deep)}
+.tab[aria-selected="true"] .tn{color:var(--deep)}
+.tab[aria-selected="true"] .bar{background:rgba(8,34,47,.45)}
+.tab.done .tn{color:var(--mist)}
+.tab.done::after{content:"feita";display:block;font-weight:600;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--turq);margin-top:2px}
+.sess.done .sess-no{background:var(--mist);color:var(--deep)}
+.tab.wide{width:auto;padding:7px 13px 6px;display:flex;align-items:center}
+.tab.wide .tn{font-size:14px;letter-spacing:.14em;text-transform:uppercase}
+.tab:focus-visible{outline:2px solid var(--turq);outline-offset:2px}
+.sess[hidden]{display:none}
+.pickhint{padding:8px var(--pad) 0;font-family:"Barlow Condensed",sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mist)}
+
+/* ===== referência em acordeão ===== */
+.refs{margin-top:8px}
+details.ref{border:1px solid var(--line);border-radius:3px;background:var(--tile);margin-bottom:10px}
+details.ref>summary{cursor:pointer;padding:15px var(--pad);display:flex;align-items:baseline;gap:11px;list-style:none;font-family:"Archivo Black",sans-serif;font-size:15px;text-transform:uppercase;letter-spacing:.01em}
+details.ref>summary::-webkit-details-marker{display:none}
+details.ref>summary::before{content:"+";font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:22px;color:var(--turq);line-height:.9;flex:0 0 14px}
+details.ref[open]>summary::before{content:"–"}
+details.ref>summary:focus-visible{outline:2px solid var(--turq);outline-offset:-2px}
+details.ref>summary .sub{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:11px;letter-spacing:.14em;color:var(--mist);text-transform:uppercase}
+.refbody{padding:0 var(--pad) var(--pad)}
+.refbody>.gloss,.refbody>.rests{margin-top:2px}
+.refbody>p:first-child{margin-top:0}
+.qa{font-size:15px;color:#C4D8DE}
+.qa p{margin:0 0 11px}
+.qa p:last-child{margin-bottom:0}
+.qa b{color:var(--chalk);font-weight:600}
+.qa h4{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--turq);margin:20px 0 8px}
+.qa ol,.qa ul{margin:0 0 11px;padding-left:21px}
+.qa li{margin-bottom:7px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">Retorno &agrave; nata&ccedil;&atilde;o &middot; domingos &middot; 1&times;/semana</p>
+  <h1>Nove<br>domingos</h1>
+</header>
+
+<div class="calcbar">
+  <div class="field"><label for="t400">400 m</label><input id="t400" type="text" inputmode="numeric" value="10:30" placeholder="10:30" autocomplete="off"></div>
+  <div class="field"><label for="t200">200 m</label><input id="t200" type="text" inputmode="numeric" value="4:55" placeholder="4:55" autocomplete="off"></div>
+  <div class="res"><span class="v" id="cssVal">&mdash;</span><span class="u">CSS &middot; provis&oacute;rio<br>min/100 m</span></div>
+  <button class="zbtn" id="zbtn" aria-expanded="false" aria-controls="zwrap">Zonas</button>
+</div>
+<div class="zwrap" id="zwrap">
+  <div class="zones">
+    <div class="zone"><span class="k">CSS+6&quot;</span><span class="t" id="z6">&mdash;</span></div>
+    <div class="zone"><span class="k">CSS+4&quot;</span><span class="t" id="z4">&mdash;</span></div>
+    <div class="zone"><span class="k">CSS+3&quot;</span><span class="t" id="z3">&mdash;</span></div>
+    <div class="zone"><span class="k">CSS+2&quot;</span><span class="t" id="z2">&mdash;</span></div>
+    <div class="zone"><span class="k">CSS&minus;3&quot;</span><span class="t" id="zm3">&mdash;</span></div>
+  </div>
+  <p class="note-s">Ritmo <b>solto</b>: <span id="soltoV">&mdash;</span> a <span id="soltoV2">&mdash;</span> por 100 m &mdash; <b>nunca mais lento que 3'10&quot;</b>. Conta do CSS: <code>(T400 &minus; T200) &divide; 2</code>.</p>
+  <p class="warn" id="warn">O 400 tem de ser mais lento que o 200. Confira os dois tempos.</p>
+</div>
+
+<div class="picker" role="tablist" aria-label="Escolher sess&atilde;o">
+  <div class="picker-scroll" id="tabs"></div>
+</div>
+<p class="pickhint" style="padding-left:0">Sess&atilde;o selecionada</p>
+
+<section id="sessoes" style="padding-top:6px">
+  <article class="sess key done">
+    <div class="sess-head"><div class="sess-no">04</div><div class="sess-meta"><span class="when">feita · 22 ago · 52 min</span><h3>Teste de crawl</h3></div><div class="sess-vol"><b>1.350</b><span>m · 52 min</span></div></div>
+    <div class="strip"><i class="warm" style="flex:200"></i><i class="warm" style="flex:100"></i><i class="drill" style="flex:200"></i><i class="rest"></i><i class="test" style="flex:400"></i><i class="rest"></i><i class="test" style="flex:200"></i><i class="warm" style="flex:250"></i></div>
+    <div class="blocks">
+      <div class="bhead"><span class="h1c">distância</span><span class="h2c">como foi</span><span class="h3c">resultado</span></div>
+      <div class="b"><span class="d">200 m</span><span class="w">crawl solto <em>· aquecimento</em></span><span class="rs none">—</span></div>
+      <div class="gap zero"><span class="ga">emenda</span><span class="gt">seguiu direto</span></div>
+      <div class="b is-back"><span class="d">100 m</span><span class="w">costas solto</span><span class="rs none">—</span></div>
+      <div class="gap"><span class="ga">30"</span><span class="gt">entre blocos</span></div>
+      <div class="b"><span class="d">4×50</span><span class="w">educativos <em>· catch-up e punho fechado saíram bem; apoio de lado e sculling difíceis — daí a simplificação do bloco de técnica nas sessões seguintes</em></span><span class="rs">15"</span></div>
+      <div class="gap long"><span class="ga">3 min</span><span class="gt">preparação do contrarrelógio</span></div>
+      <div class="b is-test"><span class="d">400 m</span><span class="w">crawl máximo · <b>2'37,5"/100</b> · parciais de 50: 1'24 · 1'18 · 1'28 · 1'15 · 1'19 · 1'23 <em>— amplitude de 13", não foi estado estável</em></span><span class="rs">10'30"</span></div>
+      <div class="gap long"><span class="ga">5 min</span><span class="gt">solto — insuficiente: o 200 saiu fatigado (erro de protocolo, corrigido no reteste)</span></div>
+      <div class="b is-test"><span class="d">200 m</span><span class="w">crawl máximo · <b>2'27,5"/100</b> <em>— já cansado do 400</em></span><span class="rs">4'55"</span></div>
+      <div class="gap"><span class="ga">1–2 min</span><span class="gt">antes da volta à calma</span></div>
+      <div class="b"><span class="d">250 m</span><span class="w">alternado, solto</span><span class="rs none">—</span></div>
+      <div class="b"><span class="d">CSS</span><span class="w">= (630 − 295) ÷ 2 · provisório, usar com margem</span><span class="rs" style="color:var(--turq)">2'47"</span></div>
+    </div>
+    <div class="foot">
+      <p><span class="lab">Diagnóstico</span>Os dois esforços têm defeito, em direções opostas. O 400 mal ritmado <b>desacelera</b> o CSS; o 200 fatigado <b>acelera</b>. Cancelam-se em parte — 2'47" é utilizável, mas provisório. O melhor parcial (1'15" = 2'30"/100) mostra que há mais dentro do que o teste capturou.</p>
+      <p><span class="lab">Duração</span>52 min reais — virou o teto do plano: da 05 em diante o tempo é fixo e o volume, consequência.</p>
+      <p><span class="lab">Revalidar</span>Checagem embutida na sessão <b>08</b>; reteste completo na <b>12</b> com 10 min entre contrarrelógios.</p>
+    </div>
+  </article>
+
+  <article class="sess key done">
+    <div class="sess-head"><div class="sess-no">05</div><div class="sess-meta"><span class="when">feita · 29 ago · ~55 min</span><h3>Teste de costas + primeira série</h3></div><div class="sess-vol"><b>1.350</b><span>m · 55 min</span></div></div>
+    <div class="strip"><i class="warm" style="flex:250"></i><i class="back" style="flex:100"></i><i class="drill" style="flex:200"></i><i class="rest"></i><i class="test" style="flex:200"></i><i class="rest"></i><i class="main" style="flex:400"></i><i class="warm" style="flex:200"></i></div>
+    <div class="blocks">
+      <div class="bhead"><span class="h1c">distância</span><span class="h2c">como foi</span><span class="h3c">resultado</span></div>
+      <div class="b"><span class="d">250 m</span><span class="w">crawl solto <em>· aquecimento</em></span><span class="rs none">—</span></div>
+      <div class="gap"><span class="ga">40"</span><span class="gt">colocar o pé de pato</span></div>
+      <div class="b is-back"><span class="d">100 m</span><span class="w">costas · pé de pato</span><span class="rs none">—</span></div>
+      <div class="b"><span class="d">2×50</span><span class="w">apoio de lado, 6 pernadas · pé de pato</span><span class="rs">15"</span></div>
+      <div class="gap"><span class="ga">45"</span><span class="gt">tirar o pé de pato</span></div>
+      <div class="b"><span class="d">2×50</span><span class="w">crawl contando braçadas</span><span class="rs">15"</span></div>
+      <div class="gap long"><span class="ga">3 min</span><span class="gt">preparação do contrarrelógio</span></div>
+      <div class="b is-test"><span class="d">200 m</span><span class="w">costas máximo · <b>3'19"/100</b> · razão de <b>1,35–1,40×</b> sobre o crawl máximo <em>(referência de nadador treinado: 1,10–1,20×)</em></span><span class="rs">6'35–40"</span></div>
+      <div class="gap long"><span class="ga">5 min</span><span class="gt">nadando solto</span></div>
+      <div class="b"><span class="d">4×100</span><span class="w">crawl · alvo 2'50" → saíram entre <b>2'35" e 2'55"</b> <em>— amplitude de 20": mesmo padrão do 400, sai rápido e paga depois. Média ~2'45" valida o CSS; o problema é execução</em></span><span class="rs">20"</span></div>
+      <div class="gap"><span class="ga">45"</span><span class="gt">entre blocos</span></div>
+      <div class="b"><span class="d">200 m</span><span class="w">alternado, solto</span><span class="rs none">—</span></div>
+    </div>
+    <div class="foot">
+      <p><span class="lab">Costas</span>Bem mais lentas que a base de crawl sugere — consistente com a dificuldade no apoio de lado: costas depende exatamente do equilíbrio lateral e do quadril alto que travaram no educativo. Um bloco <i>moderado</i> sairia a 3'35"–3'45"/100, abaixo do piso lombar de 3'10". <b>Pé de pato passou a ser obrigatório em todas as costas do plano.</b></p>
+      <p><span class="lab">Séries</span>Regra a partir daqui: primeira repetição a mais lenta, de propósito, e pace conferido a cada 50 — quatro leituras por 100 chegam tarde para corrigir.</p>
+    </div>
+  </article>
+
+  <article class="sess">
+    <div class="sess-head"><div class="sess-no">06</div><div class="sess-meta"><span class="when">domingo 3 · 50 min</span><h3>Densidade</h3></div><div class="sess-vol"><b>1.400</b><span>m · 50 min</span></div></div>
+    <div class="strip"><i class="warm" style="flex:200"></i><i class="back" style="flex:100"></i><i class="drill" style="flex:200"></i><i class="main" style="flex:500"></i><i class="back" style="flex:200"></i><i class="warm" style="flex:200"></i></div>
+    <div class="blocks">
+      <div class="bhead"><span class="h1c">distância</span><span class="h2c">o quê</span><span class="h3c">descanso</span></div>
+      <div class="b"><span class="d">200 m</span><span class="w">crawl solto</span><span class="rs none">—</span></div>
+      <div class="gap zero"><span class="ga">emenda</span><span class="gt">segue direto</span></div>
+      <div class="b is-back"><span class="d">100 m</span><span class="w">costas solto</span><span class="rs none">—</span></div>
+      <div class="gap"><span class="ga">40"</span><span class="gt">colocar o pé de pato</span></div>
+      <div class="b"><span class="d">2×50</span><span class="w">apoio de lado, 6 pernadas · <b>pé de pato</b></span><span class="rs">15"</span></div>
+      <div class="gap"><span class="ga">45"</span><span class="gt">tirar o pé de pato</span></div>
+      <div class="b"><span class="d">2×50</span><span class="w">crawl contando braçadas <em>· tirar uma por rep</em></span><span class="rs">15"</span></div>
+      <div class="gap"><span class="ga">60"</span><span class="gt">antes da série</span></div>
+      <div class="b"><span class="d">5×100</span><span class="w">crawl @ CSS+3" → <span class="p tgt" data-off="3" data-dist="100">—</span> <em>· 50 em</em> <span class="p tgt" data-off="3" data-dist="50">—</span></span><span class="rs">20"</span></div>
+      <div class="gap"><span class="ga">60"</span><span class="gt">colocar o pé de pato</span></div>
+      <div class="b is-back"><span class="d">200 m</span><span class="w">costas contínuo, moderado · <b>pé de pato obrigatório</b></span><span class="rs none">—</span></div>
+      <div class="gap"><span class="ga">30"</span><span class="gt">tirar o pé de pato</span></div>
+      <div class="b"><span class="d">200 m</span><span class="w">alternado, solto</span><span class="rs none">—</span></div>
+    </div>
+    <div class="foot">
+      <p><span class="lab">Execução</span>Primeira repetição a mais lenta da série, de propósito. Cheque o relógio a cada 50 — quatro leituras por 100 chegam tarde demais para corrigir.</p>
+      <p><span class="lab">Nota</span>As costas vêm antes da volta à calma, nunca nos últimos 300 m — sob fadiga o quadril afunda e a compensação é arquear a lombar.</p>
+    </div>
+  </article>
+
+  <article class="sess">
+    <div class="sess-head"><div class="sess-no">07</div><div class="sess-meta"><span class="when">domingo 4 · 53 min</span><h3>Repetições longas</h3></div><div class="sess-vol"><b>1.500</b><span>m · 53 min</span></div></div>
+    <div class="strip"><i class="warm" style="flex:200"></i><i class="back" style="flex:100"></i><i class="drill" style="flex:200"></i><i class="main" style="flex:600"></i><i class="back" style="flex:200"></i><i class="warm" style="flex:200"></i></div>
+    <div class="blocks">
+      <div class="bhead"><span class="h1c">distância</span><span class="h2c">o quê</span><span class="h3c">descanso</span></div>
+      <div class="b"><span class="d">200 m</span><span class="w">crawl solto</span><span class="rs none">—</span></div>
+      <div class="gap zero"><span class="ga">emenda</span><span class="gt">segue direto</span></div>
+      <div class="b is-back"><span class="d">100 m</span><span class="w">costas solto</span><span class="rs none">—</span></div>
+      <div class="gap"><span class="ga">40"</span><span class="gt">colocar o pé de pato</span></div>
+      <div class="b"><span class="d">2×50</span><span class="w">apoio de lado, 6 pernadas · <b>pé de pato</b></span><span class="rs">15"</span></div>
+      <div class="gap"><span class="ga">45"</span><span class="gt">tirar o pé de pato</span></div>
+      <div class="b"><span class="d">2×50</span><span class="w">crawl contando braçadas <em>· tirar uma por rep</em></span><span class="rs">15"</span></div>
+      <div class="gap"><span class="ga">60"</span><span class="gt">antes da série</span></div>
+      <div class="b"><span class="d">3×200</span><span class="w">crawl @ CSS+4" → <span class="p tgt" data-off="4" data-dist="200">—</span> <em>· 50 em</em> <span class="p tgt" data-off="4" data-dist="50">—</span></span><span class="rs">30"</span></div>
+      <div class="gap"><span class="ga">60"</span><span class="gt">colocar o pé de pato</span></div>
+      <div class="b is-back"><span class="d">200 m</span><span class="w">costas contínuo, moderado · <b>pé de pato obrigatório</b></span><span class="rs none">—</span></div>
+      <div class="gap"><span class="ga">30"</span><span class="gt">tirar o pé de pato</span></div>
+      <div class="b"><span class="d">200 m</span><span class="w">alternado, solto</span><span class="rs none">—</span></div>
+    </div>
+    <div class="foot">
+      <p><span class="lab">Nota</span>Se o terceiro 200 vier mais de 5" acima do alvo, o pace de partida estava rápido — corrija na semana seguinte, não dentro da série.</p>
+    </div>
+  </article>
+
+  <article class="sess hold">
+    <div class="sess-head"><div class="sess-no">08</div><div class="sess-meta"><span class="when">domingo 5 · 53 min</span><h3>Consolidação · checagem do CSS</h3></div><div class="sess-vol"><b>1.550</b><span>m · 53 min</span></div></div>
+    <div class="strip"><i class="warm" style="flex:250"></i><i class="drill" style="flex:200"></i><i class="main" style="flex:800"></i><i class="back" style="flex:100"></i><i class="warm" style="flex:200"></i></div>
+    <div class="blocks">
+      <div class="bhead"><span class="h1c">distância</span><span class="h2c">o quê</span><span class="h3c">descanso</span></div>
+      <div class="b"><span class="d">250 m</span><span class="w">crawl solto <em>· 100 m com pé de pato</em></span><span class="rs none">—</span></div>
+      <div class="b"><span class="d">2×50</span><span class="w">apoio de lado, 6 pernadas · <b>pé de pato</b></span><span class="rs">15"</span></div>
+      <div class="gap"><span class="ga">45"</span><span class="gt">tirar o pé de pato</span></div>
+      <div class="b"><span class="d">2×50</span><span class="w">crawl contando braçadas <em>· tirar uma por rep</em></span><span class="rs">15"</span></div>
+      <div class="gap"><span class="ga">60"</span><span class="gt">antes do bloco contínuo</span></div>
+      <div class="b"><span class="d">800 m</span><span class="w"><b>checagem do CSS</b> · crawl contínuo, <i>negative split</i> · 1ª metade <span class="p tgt" data-off="8" data-dist="100">—</span> / 2ª metade <span class="p tgt" data-off="4" data-dist="100">—</span> por 100</span><span class="rs none">—</span></div>
+      <div class="gap"><span class="ga">60"</span><span class="gt">entre blocos</span></div>
+      <div class="b is-back"><span class="d">100 m</span><span class="w">costas solto</span><span class="rs none">—</span></div>
+      <div class="gap zero"><span class="ga">emenda</span><span class="gt">segue direto para a volta à calma</span></div>
+      <div class="b"><span class="d">200 m</span><span class="w">alternado, solto</span><span class="rs none">—</span></div>
+    </div>
+    <div class="foot">
+      <p><span class="lab">Checagem</span>Se os 800 saírem confortáveis no alvo e a 2ª metade vier claramente mais rápida, o CSS de 2'47" está lento — desconte 4" por 100 nas sessões 09 a 11. Se a 2ª metade despencar, mantenha.</p>
+      <p><span class="lab">Por que estável</span>Volume próximo ao da sessão 07 de propósito. A semana sem aumento existe para a intensidade subir sozinha — e para o ombro, que adapta mais devagar que o sistema cardiovascular, ter uma exposição repetida em vez de mais uma nova.</p>
+    </div>
+  </article>
+
+  <article class="sess">
+    <div class="sess-head"><div class="sess-no">09</div><div class="sess-meta"><span class="when">domingo 6 · 54 min</span><h3>Ritmo</h3></div><div class="sess-vol"><b>1.500</b><span>m · 54 min</span></div></div>
+    <div class="strip"><i class="warm" style="flex:200"></i><i class="back" style="flex:100"></i><i class="drill" style="flex:200"></i><i class="main" style="flex:600"></i><i class="back" style="flex:200"></i><i class="warm" style="flex:200"></i></div>
+    <div class="blocks">
+      <div class="bhead"><span class="h1c">distância</span><span class="h2c">o quê</span><span class="h3c">descanso</span></div>
+      <div class="b"><span class="d">200 m</span><span class="w">crawl solto</span><span class="rs none">—</span></div>
+      <div class="gap zero"><span class="ga">emenda</span><span class="gt">segue direto</span></div>
+      <div class="b is-back"><span class="d">100 m</span><span class="w">costas solto</span><span class="rs none">—</span></div>
+      <div class="gap"><span class="ga">40"</span><span class="gt">colocar o pé de pato</span></div>
+      <div class="b"><span class="d">2×50</span><span class="w">apoio de lado, 6 pernadas · <b>pé de pato</b></span><span class="rs">15"</span></div>
+      <div class="gap"><span class="ga">45"</span><span class="gt">tirar o pé de pato</span></div>
+      <div class="b"><span class="d">2×50</span><span class="w">crawl contando braçadas <em>· tirar uma por rep</em></span><span class="rs">15"</span></div>
+      <div class="gap"><span class="ga">60"</span><span class="gt">antes da série</span></div>
+      <div class="b"><span class="d">8×75</span><span class="w">crawl @ CSS+2" → <span class="p tgt" data-off="2" data-dist="75">—</span> <em>· 50 em</em> <span class="p tgt" data-off="2" data-dist="50">—</span></span><span class="rs">20"</span></div>
+      <div class="gap"><span class="ga">60"</span><span class="gt">colocar o pé de pato</span></div>
+      <div class="b is-back"><span class="d">200 m</span><span class="w">costas contínuo · <b>pé de pato obrigatório</b></span><span class="rs none">—</span></div>
+      <div class="gap"><span class="ga">30"</span><span class="gt">tirar o pé de pato</span></div>
+      <div class="b"><span class="d">200 m</span><span class="w">alternado, solto</span><span class="rs none">—</span></div>
+    </div>
+    <div class="foot">
+      <p><span class="lab">Nota</span>75 m termina na borda oposta à partida. Conte as viradas — não confie na memória no meio da série.</p>
+    </div>
+  </article>
+
+  <article class="sess">
+    <div class="sess-head"><div class="sess-no">10</div><div class="sess-meta"><span class="when">domingo 7 · 55 min</span><h3>Limiar</h3></div><div class="sess-vol"><b>1.550</b><span>m · 55 min</span></div></div>
+    <div class="strip"><i class="warm" style="flex:200"></i><i class="back" style="flex:100"></i><i class="drill" style="flex:200"></i><i class="main" style="flex:600"></i><i class="back" style="flex:250"></i><i class="warm" style="flex:200"></i></div>
+    <div class="blocks">
+      <div class="bhead"><span class="h1c">distância</span><span class="h2c">o quê</span><span class="h3c">descanso</span></div>
+      <div class="b"><span class="d">200 m</span><span class="w">crawl solto</span><span class="rs none">—</span></div>
+      <div class="gap zero"><span class="ga">emenda</span><span class="gt">segue direto</span></div>
+      <div class="b is-back"><span class="d">100 m</span><span class="w">costas solto</span><span class="rs none">—</span></div>
+      <div class="gap"><span class="ga">40"</span><span class="gt">colocar o pé de pato</span></div>
+      <div class="b"><span class="d">2×50</span><span class="w">apoio de lado, 6 pernadas · <b>pé de pato</b></span><span class="rs">15"</span></div>
+      <div class="gap"><span class="ga">45"</span><span class="gt">tirar o pé de pato</span></div>
+      <div class="b"><span class="d">2×50</span><span class="w">crawl contando braçadas <em>· tirar uma por rep</em></span><span class="rs">15"</span></div>
+      <div class="gap"><span class="ga">60"</span><span class="gt">antes da série</span></div>
+      <div class="b"><span class="d">4×150</span><span class="w">crawl @ CSS+3" → <span class="p tgt" data-off="3" data-dist="150">—</span> <em>· 50 em</em> <span class="p tgt" data-off="3" data-dist="50">—</span></span><span class="rs">25"</span></div>
+      <div class="gap"><span class="ga">60"</span><span class="gt">colocar o pé de pato</span></div>
+      <div class="b is-back"><span class="d">250 m</span><span class="w">costas contínuo, moderado · <b>pé de pato obrigatório</b></span><span class="rs none">—</span></div>
+      <div class="gap"><span class="ga">30"</span><span class="gt">tirar o pé de pato</span></div>
+      <div class="b"><span class="d">200 m</span><span class="w">alternado, solto</span><span class="rs none">—</span></div>
+    </div>
+    <div class="foot">
+      <p><span class="lab">Nota</span>Maior bloco de costas do plano, e só é seguro com pé de pato obrigatório: a velocidade mantém o quadril alto, então o mecanismo de arqueamento não aparece.</p>
+    </div>
+  </article>
+
+  <article class="sess hold">
+    <div class="sess-head"><div class="sess-no">11</div><div class="sess-meta"><span class="when">domingo 8 · 55 min</span><h3>Acima do limiar</h3></div><div class="sess-vol"><b>1.500</b><span>m · 55 min</span></div></div>
+    <div class="strip"><i class="warm" style="flex:250"></i><i class="drill" style="flex:200"></i><i class="main" style="flex:500"></i><i class="main" style="flex:200"></i><i class="back" style="flex:200"></i><i class="warm" style="flex:150"></i></div>
+    <div class="blocks">
+      <div class="bhead"><span class="h1c">distância</span><span class="h2c">o quê</span><span class="h3c">descanso</span></div>
+      <div class="b"><span class="d">250 m</span><span class="w">crawl solto</span><span class="rs none">—</span></div>
+      <div class="gap"><span class="ga">40"</span><span class="gt">colocar o pé de pato</span></div>
+      <div class="b"><span class="d">2×50</span><span class="w">apoio de lado, 6 pernadas · <b>pé de pato</b></span><span class="rs">15"</span></div>
+      <div class="gap"><span class="ga">45"</span><span class="gt">tirar o pé de pato</span></div>
+      <div class="b"><span class="d">2×50</span><span class="w">crawl contando braçadas <em>· tirar uma por rep</em></span><span class="rs">15"</span></div>
+      <div class="gap"><span class="ga">60"</span><span class="gt">antes da série</span></div>
+      <div class="b"><span class="d">10×50</span><span class="w">crawl @ CSS−3" → <span class="p tgt" data-off="-3" data-dist="50">—</span></span><span class="rs">20"</span></div>
+      <div class="gap long"><span class="ga">90"</span><span class="gt">mais longo: vem de trabalho acima do limiar · colocar o palmar</span></div>
+      <div class="b"><span class="d">200 m</span><span class="w">crawl contínuo, moderado <em>· palmar pequeno, se o ombro estiver silencioso</em></span><span class="rs none">—</span></div>
+      <div class="gap"><span class="ga">60"</span><span class="gt">tirar o palmar</span></div>
+      <div class="b is-back"><span class="d">200 m</span><span class="w">costas solto</span><span class="rs none">—</span></div>
+      <div class="gap zero"><span class="ga">emenda</span><span class="gt">segue direto para a volta à calma</span></div>
+      <div class="b"><span class="d">150 m</span><span class="w">alternado, solto</span><span class="rs none">—</span></div>
+    </div>
+    <div class="foot">
+      <p><span class="lab">Equipamento</span>Estreia do palmar — pequeno, 200 m, e só se não houve nenhum episódio de desconforto de ombro nas sete semanas anteriores. <b>Nunca palmar junto com pull buoy.</b></p>
+      <p><span class="lab">Nota</span>Único bloco do plano acima do limiar. 10×50 é curto de propósito: o custo articular de CSS−3" é alto e a única sessão semanal não tem margem para pagar duas vezes.</p>
+    </div>
+  </article>
+
+  <article class="sess key">
+    <div class="sess-head"><div class="sess-no">12</div><div class="sess-meta"><span class="when">domingo 9 · 61 min</span><h3>Reteste</h3></div><div class="sess-vol"><b>1.450</b><span>m · 61 min</span></div></div>
+    <div class="strip"><i class="warm" style="flex:300"></i><i class="back" style="flex:100"></i><i class="drill" style="flex:200"></i><i class="rest"></i><i class="test" style="flex:400"></i><i class="rest"></i><i class="test" style="flex:200"></i><i class="warm" style="flex:250"></i></div>
+    <div class="blocks">
+      <div class="bhead"><span class="h1c">distância</span><span class="h2c">o quê</span><span class="h3c">descanso</span></div>
+      <div class="b"><span class="d">300 m</span><span class="w">crawl solto</span><span class="rs none">—</span></div>
+      <div class="gap zero"><span class="ga">emenda</span><span class="gt">segue direto</span></div>
+      <div class="b is-back"><span class="d">100 m</span><span class="w">costas solto</span><span class="rs none">—</span></div>
+      <div class="gap"><span class="ga">40"</span><span class="gt">colocar o pé de pato</span></div>
+      <div class="b"><span class="d">2×50</span><span class="w">apoio de lado, 6 pernadas · <b>pé de pato</b></span><span class="rs">15"</span></div>
+      <div class="gap"><span class="ga">45"</span><span class="gt">tirar o pé de pato</span></div>
+      <div class="b"><span class="d">2×50</span><span class="w">crawl contando braçadas <em>· tirar uma por rep</em></span><span class="rs">15"</span></div>
+      <div class="gap long"><span class="ga">3 min</span><span class="gt">preparar contrarrelógio</span></div>
+      <div class="b is-test"><span class="d">400 m</span><span class="w">crawl · máximo sustentável</span><span class="rs none">—</span></div>
+      <div class="gap long"><span class="ga">10 min</span><span class="gt">nadando solto — dobrado em relação à sessão 04, que fatigou o 200</span></div>
+      <div class="b is-test"><span class="d">200 m</span><span class="w">crawl · máximo</span><span class="rs none">—</span></div>
+      <div class="gap"><span class="ga">—</span><span class="gt"><b>o teste de costas sai desta sessão</b> · faça sozinho no domingo seguinte</span></div>
+      <div class="b"><span class="d">250 m</span><span class="w">alternado, solto</span><span class="rs none">—</span></div>
+    </div>
+    <div class="foot">
+      <p><span class="lab">Execução</span>Contagem manual de voltas e relógio de parede. Não dependa da detecção automática — 10 s de erro em um dos tempos desloca o CSS em 5 s por 100 m.</p>
+      <p><span class="lab">O que verificar</span>Três números: o novo CSS, a contagem de braçadas por 50 comparada à da sessão 04, e a duração total. Se o CSS caiu, quase sempre é volume subindo rápido demais — não falta de intensidade.</p>
+    </div>
+  </article>
+
+</section>
+
+<section class="refs" style="padding-top:clamp(28px,7vw,44px)">
+
+<details class="ref">
+  <summary>Por que o tempo virou o teto <span class="sub">e o volume, consequ&ecirc;ncia</span></summary>
+  <div class="refbody qa">
+    <p>A vers&atilde;o anterior subia de 1.350 a 1.900 m ao longo das nove semanas. Com os 52 min reais da sess&atilde;o 04 para calibrar o modelo, essa progress&atilde;o levava as sess&otilde;es 09 a 11 para <b>65&ndash;69 minutos</b> &mdash; longe do que voc&ecirc; pediu, que era uma alternativa &agrave; corrida, n&atilde;o uma sess&atilde;o que cresce at&eacute; virar outra coisa.</p>
+    <h4>De onde vinha o erro</h4>
+    <p>Conven&ccedil;&atilde;o herdada de planos escritos para quem treina 3&ndash;5&times; por semana com objetivo de prova. Nesse contexto volume &eacute; a vari&aacute;vel certa. No seu, o que importa &eacute; <b>tempo em zona aer&oacute;bia por semana</b> com custo articular baixo &mdash; e metros s&atilde;o s&oacute; um proxy ruim disso.</p>
+    <h4>A regra nova</h4>
+    <p><b>Teto de 55 min</b> nas sess&otilde;es regulares, 61 min no reteste (os 13 min de intervalo entre contrarrel&oacute;gios s&atilde;o inevit&aacute;veis). O volume passou a flutuar entre 1.400 e 1.550 m em vez de escalar &mdash; e flutua justamente porque a intensidade varia: uma sess&atilde;o de 10&times;50 acima do limiar cabe menos metros no mesmo tempo que um 800 cont&iacute;nuo.</p>
+    <h4>O que continua subindo</h4>
+    <p>A parte &uacute;til. Aquecimento, t&eacute;cnica e volta &agrave; calma somam ~750 m fixos em toda sess&atilde;o; o bloco de trabalho vai de <b>600 a 900 m</b> dentro do mesmo tempo total. O corte saiu quase todo dos blocos de costas, que s&atilde;o os menos densos em est&iacute;mulo por minuto.</p>
+    <h4>O port&atilde;o para crescer</h4>
+    <p>O custo articular do ombro &eacute; <b>n&uacute;mero de bra&ccedil;adas</b>, n&atilde;o metros. Ent&atilde;o o volume s&oacute; sobe com seguran&ccedil;a na medida em que a bra&ccedil;ada por 50 m cai. Regra pr&aacute;tica: se a contagem cair 2&ndash;3 por 50 com o mesmo pace, voc&ecirc; ganhou espa&ccedil;o para +100 m. Se n&atilde;o cair, o volume fica onde est&aacute; e a intensidade sobe sozinha.</p>
+  </div>
+</details>
+
+<details class="ref">
+  <summary>O que &eacute; CSS <span class="sub">de onde sai o n&uacute;mero</span></summary>
+  <div class="refbody qa">
+    <p>CSS &eacute; <i>Critical Swim Speed</i> &mdash; a vers&atilde;o aqu&aacute;tica do modelo de <b>pot&ecirc;ncia cr&iacute;tica</b>, o mesmo que na corrida e no ciclismo produz limiar funcional.</p>
+    <h4>O modelo</h4>
+    <p>Em esfor&ccedil;os m&aacute;ximos entre ~2 e ~15 minutos, a rela&ccedil;&atilde;o entre dist&acirc;ncia e tempo &eacute; quase uma reta:</p>
+    <p style="text-align:center;font-family:'Barlow Condensed';font-weight:700;font-size:21px;color:var(--chalk);margin:14px 0">d = CS &times; t + D&prime;</p>
+    <p><b>CS</b> &eacute; a inclina&ccedil;&atilde;o da reta &mdash; a velocidade que voc&ecirc; sustenta indefinidamente, em tese. <b>D&prime;</b> &eacute; o intercepto: uma reserva finita de dist&acirc;ncia que voc&ecirc; consegue nadar <i>acima</i> de CS antes de esgotar, e que n&atilde;o se recarrega enquanto voc&ecirc; estiver acima do limiar.</p>
+    <p>Duas provas m&aacute;ximas definem a reta. 400 e 200 s&atilde;o o par convencional, e a conta se simplifica para <code>CSS = (T400 &minus; T200) &divide; 2</code> segundos por 100 m.</p>
+    <h4>O que representa fisiologicamente</h4>
+    <p>CSS aproxima o <b>m&aacute;ximo estado est&aacute;vel de lactato</b> &mdash; a fronteira entre o dom&iacute;nio pesado e o severo. Abaixo dela, o consumo de oxig&ecirc;nio estabiliza e o lactato se equilibra: voc&ecirc; sustenta 30&ndash;60 min. Acima, o VO&#8322; deriva para o m&aacute;ximo e o lactato acumula sem teto: o tempo at&eacute; a exaust&atilde;o passa a ser contado.</p>
+    <p>&Eacute; por isso que o plano prescreve quase tudo em <b>CSS+2&quot; a CSS+4&quot;</b>. Logo abaixo do limiar &eacute; onde o est&iacute;mulo aer&oacute;bio &eacute; maior por unidade de desgaste &mdash; e com uma sess&atilde;o semanal e um ombro destreinado, desgaste &eacute; a moeda escassa.</p>
+    <h4>A fragilidade: &eacute; uma diferen&ccedil;a</h4>
+    <p>O CSS n&atilde;o sai de um tempo, sai da <b>diferen&ccedil;a entre dois tempos</b>. Diferen&ccedil;as amplificam erro. No seu caso a diferen&ccedil;a foi de 335 s, e a amplifica&ccedil;&atilde;o &eacute; de <b>1 para 0,5</b>:</p>
+    <ul>
+      <li>10 s de erro no 200 &rarr; <b>5 s por 100 m</b> de erro no CSS</li>
+      <li>10 s de erro no 400 &rarr; <b>5 s por 100 m</b>, na dire&ccedil;&atilde;o oposta</li>
+    </ul>
+    <p>Como as zonas do plano s&atilde;o definidas em degraus de 2&ndash;3 s, um erro de medi&ccedil;&atilde;o de 10 s desloca voc&ecirc; <b>duas zonas inteiras</b>. Da&iacute; a insist&ecirc;ncia em contagem manual de voltas e rel&oacute;gio de parede no reteste.</p>
+    <h4>As dire&ccedil;&otilde;es do erro</h4>
+    <ul>
+      <li><b>400 lento demais</b> (mal ritmado, como o seu) &rarr; diferen&ccedil;a maior &rarr; CSS aparece <b>mais lento</b> que o real</li>
+      <li><b>200 fatigado</b> (como o seu) &rarr; diferen&ccedil;a menor &rarr; CSS aparece <b>mais r&aacute;pido</b> que o real</li>
+    </ul>
+    <p>Voc&ecirc; cometeu os dois, e eles se cancelam parcialmente. &Eacute; o motivo de 2'47&quot; ser utiliz&aacute;vel apesar de nenhuma das duas provas ter sido limpa &mdash; mas tamb&eacute;m o motivo de eu chamar de provis&oacute;rio em vez de tratar como verdade.</p>
+  </div>
+</details>
+
+<details class="ref">
+  <summary>O rel&oacute;gio erra <span class="sub">como tratar os dados</span></summary>
+  <div class="refbody qa">
+    <p>A detec&ccedil;&atilde;o autom&aacute;tica em piscina tem tr&ecirc;s falhas conhecidas, e as tr&ecirc;s aparecem nos seus dados.</p>
+    <h4>1. Contagem de bra&ccedil;adas</h4>
+    <p>20&ndash;23 por 50 m d&aacute; 10&ndash;11 por piscina de 25 m &mdash; acima de n&iacute;vel elite, imposs&iacute;vel na sua fase. O rel&oacute;gio conta ciclos (um por par de bra&ccedil;os) ou perde bra&ccedil;adas na virada. <b>Use como m&eacute;trica relativa:</b> o que importa &eacute; o n&uacute;mero cair ao longo das semanas com o mesmo pace, nunca o valor absoluto.</p>
+    <h4>2. Detec&ccedil;&atilde;o de estilo</h4>
+    <p>Foi o que travou a leitura das sess&otilde;es 2 e 3 &mdash; crawl, costas e peito misturados no mesmo bloco, sem como isolar o pace de cada um. Resolve-se pela estrutura, n&atilde;o pelo equipamento: <b>um estilo por bloco, bloco marcado separadamente.</b></p>
+    <h4>3. Voltas perdidas</h4>
+    <p>A mais perigosa para contrarrel&oacute;gio, porque muda a <i>dist&acirc;ncia</i>. Um 400 que o rel&oacute;gio registra como 400 mas foi 375 produz um CSS fantasia. No reteste: <b>conte as voltas de cabe&ccedil;a e cronometre no rel&oacute;gio de parede.</b> O rel&oacute;gio de pulso vira registro secund&aacute;rio.</p>
+    <h4>O que confiar</h4>
+    <ul>
+      <li><b>Confi&aacute;vel:</b> tempo total, frequ&ecirc;ncia card&iacute;aca m&eacute;dia, dura&ccedil;&atilde;o de blocos</li>
+      <li><b>Relativo:</b> contagem de bra&ccedil;adas, pace por parcial</li>
+      <li><b>Verificar sempre:</b> dist&acirc;ncia total, classifica&ccedil;&atilde;o de estilo</li>
+    </ul>
+  </div>
+</details>
+
+<details class="ref">
+  <summary>Ombro de nadador <span class="sub">a propor&ccedil;&atilde;o 70/30 resolve?</span></summary>
+  <div class="refbody qa">
+    <p><b>N&atilde;o. A propor&ccedil;&atilde;o de estilos &eacute; uma alavanca fraca para o ombro.</b> Crawl e costas compartilham o mesmo mecanismo de risco: abdu&ccedil;&atilde;o acima da cabe&ccedil;a repetida sob carga, milhares de ciclos por sess&atilde;o. Costas n&atilde;o &eacute; descanso para o ombro &mdash; a entrada em rota&ccedil;&atilde;o externa m&aacute;xima com bra&ccedil;o estendido &eacute; provavelmente <i>mais</i> provocativa para o supraespinhal e o cabo longo do b&iacute;ceps que o crawl.</p>
+    <p>Os 70/30 est&atilde;o no plano por outro motivo: <b>poupar o cervical</b>. Costas dispensa a rota&ccedil;&atilde;o repetida da respira&ccedil;&atilde;o, o que importa com oste&oacute;fitos em C5-C6 e contato com a raiz de C6. Tamb&eacute;m d&aacute; alguma variedade de padr&atilde;o escapular. &Eacute; real, mas modesto.</p>
+    <h4>O que de fato protege, em ordem de alavanca</h4>
+    <ol>
+      <li><b>Taxa de progress&atilde;o de volume.</b> O fator dominante, e o motivo dos 6&ndash;9% por domingo e das duas semanas de volume est&aacute;vel.</li>
+      <li><b>For&ccedil;a de manguito e escapular em terra.</b> Com 1&times;/semana na &aacute;gua, o tecido nunca se condiciona pela nata&ccedil;&atilde;o &mdash; ent&atilde;o o trabalho em terra fica <i>mais</i> importante, n&atilde;o menos. Rota&ccedil;&atilde;o externa com banda, <i>face pull</i>, Y-T-W em prono, serr&aacute;til. Duas a tr&ecirc;s vezes por semana, carga baixa, volume alto. Vale levar isso para quem monta o seu programa de for&ccedil;a.</li>
+      <li><b>N&uacute;mero de bra&ccedil;adas, n&atilde;o metros.</b> Quem faz 100 m em 38 bra&ccedil;adas paga metade do pre&ccedil;o articular de quem faz em 55. Conte as bra&ccedil;adas de um 50 no aquecimento e trate esse n&uacute;mero como m&eacute;trica de treino.</li>
+      <li><b>Respira&ccedil;&atilde;o bilateral</b> (a cada 3 bra&ccedil;adas). Respirar sempre do mesmo lado cria assimetria de carga e de rota&ccedil;&atilde;o de tronco.</li>
+      <li><b>T&eacute;cnica de entrada.</b> Entrada com o polegar primeiro for&ccedil;a rota&ccedil;&atilde;o interna no topo do arco &mdash; &eacute; o gesto cl&aacute;ssico de impacto subacromial. Entre com a m&atilde;o plana, dedos primeiro, na largura do ombro, sem cruzar a linha m&eacute;dia.</li>
+      <li><b>Disciplina de material.</b> Palmar tarde e pequeno, pull buoy limitado, nunca os dois juntos.</li>
+    </ol>
+    <p>Resumo: mantenha os 70/30 pelo cervical, mas n&atilde;o conte com eles como prote&ccedil;&atilde;o de ombro. A prote&ccedil;&atilde;o est&aacute; na taxa de progress&atilde;o e no trabalho em terra.</p>
+  </div>
+</details>
+
+<details class="ref">
+  <summary>Trocar uma corrida por nata&ccedil;&atilde;o <span class="sub">adianta o pr&oacute;ximo treino?</span></summary>
+  <div class="refbody qa">
+    <p><b>N&atilde;o.</b> A regra &eacute;: <b>o n&uacute;mero da sess&atilde;o avan&ccedil;a s&oacute; no domingo.</b> Toda a l&oacute;gica de progress&atilde;o assume uma exposi&ccedil;&atilde;o por semana &mdash; se voc&ecirc; nadar duas vezes numa semana e avan&ccedil;ar duas sess&otilde;es, dobra a carga de ombro daquela semana e queima duas etapas de uma vez.</p>
+    <h4>Troca eventual (uma semana s&oacute;)</h4>
+    <p>Nade o domingo como est&aacute; prescrito e trate o nado extra como <b>sess&atilde;o coringa</b>, fora do plano: 900&ndash;1.200 m, aquecimento + t&eacute;cnica + cont&iacute;nuo moderado em <span class="tgt" data-off="8" data-dist="100">&mdash;</span> por 100, sem s&eacute;rie e sem contrarrel&oacute;gio. Volume baixo, zero material. No domingo seguinte voc&ecirc; segue para a sess&atilde;o seguinte normalmente.</p>
+    <h4>Troca permanente (corrida 1&times;, nata&ccedil;&atilde;o 2&times;)</h4>
+    <p>A&iacute; o plano precisa ser reescrito, n&atilde;o acelerado. O formato que eu sugeriria: <b>domingo continua sendo a sess&atilde;o do plano</b>, e a segunda sess&atilde;o da semana &eacute; curta e leve &mdash; 30 min, ~1.000 m, t&eacute;cnica e cont&iacute;nuo moderado. Duas sess&otilde;es de qualidade por semana na &aacute;gua, depois de tr&ecirc;s anos parado, &eacute; exatamente o caminho da tendinopatia.</p>
+    <p>E vale dizer o que a troca custa: <b>1&times;/semana de nata&ccedil;&atilde;o n&atilde;o substitui a carga aer&oacute;bia de duas corridas.</b> Manter e complementar, sim; gerar adapta&ccedil;&atilde;o cardiovascular sozinha, pouco. Se a troca for por causa da coluna e n&atilde;o por prefer&ecirc;ncia, vale conversar com quem acompanha o retorno ao treino antes de reduzir a corrida em definitivo.</p>
+  </div>
+</details>
+
+<details class="ref">
+  <summary>Como come&ccedil;ar o 400 <span class="sub">estrat&eacute;gia de pace do teste</span></summary>
+  <div class="refbody qa">
+    <p>Voc&ecirc; n&atilde;o tem refer&ecirc;ncia porque nas sess&otilde;es 2 e 3 os estilos vinham misturados no mesmo bloco &mdash; imposs&iacute;vel isolar o crawl. A estimativa poss&iacute;vel ficou entre <b>2'16&quot;</b> e <b>2'49&quot;</b> por 100 m, faixa larga demais para prescrever.</p>
+    <h4>Palpite de partida</h4>
+    <p>Comece o primeiro 100 em torno de <b>2'30&quot;</b>. Isso mira um 400 entre 9'40&quot; e 10'00&quot;. Se estiver conservador, voc&ecirc; descobre nos &uacute;ltimos 100 e acelera; se estiver otimista, voc&ecirc; perde o teste. A assimetria favorece come&ccedil;ar devagar.</p>
+    <h4>A regra que vale mais que o n&uacute;mero</h4>
+    <p><b>O primeiro 100 tem de parecer f&aacute;cil demais.</b> Sensa&ccedil;&atilde;o de que voc&ecirc; aguentaria 800 m naquele ritmo. Todo mundo que volta &agrave; &aacute;gua depois de anos comete o mesmo erro: parte no ritmo que a mem&oacute;ria muscular sugere, e a mem&oacute;ria &eacute; de tr&ecirc;s anos atr&aacute;s.</p>
+    <h4>Sonda no aquecimento</h4>
+    <p>Nos 200 m de crawl do aquecimento, cronometre um 50 no ritmo que voc&ecirc; <i>acha</i> que seria o do 400. Multiplique por 8. Se der abaixo de 9 min, o ritmo est&aacute; rápido &mdash; desconte 5&ndash;8&quot; por 100.</p>
+    <h4>Tr&ecirc;s checagens durante o 400</h4>
+    <ul>
+      <li><b>Bra&ccedil;adas:</b> conte as do primeiro 50. Se no &uacute;ltimo 50 subir mais de 3, o pace estava alto.</li>
+      <li><b>Fala:</b> em m&aacute;ximo sustent&aacute;vel voc&ecirc; consegue dizer tr&ecirc;s ou quatro palavras na borda, n&atilde;o uma frase. Se n&atilde;o sai nada, foi tiro.</li>
+      <li><b>Parciais de 100:</b> os quatro dentro de 4&quot; entre si. O &uacute;ltimo pode ser o mais r&aacute;pido &mdash; nunca o primeiro.</li>
+    </ul>
+    <h4>Se der errado</h4>
+    <p>Se voc&ecirc; tiver que parar ou desabar antes dos 300 m, o teste n&atilde;o vale. N&atilde;o tente de novo no mesmo dia: v&aacute; para a volta &agrave; calma e repita no domingo seguinte come&ccedil;ando <b>8&ndash;10&quot; por 100 mais devagar</b>. Perder um domingo &eacute; barato; nove semanas prescritas sobre um CSS errado, n&atilde;o.</p>
+  </div>
+</details>
+
+<details class="ref">
+  <summary>Como ler <span class="sub">nota&ccedil;&atilde;o e termos</span></summary>
+  <div class="refbody">
+<dl class="gloss">
+    <div class="g"><dt>20"</dt><dd>Vinte <b>segundos</b>. As aspas duplas marcam segundos; a simples marca minutos. Então <b>2'25"</b> é dois minutos e vinte e cinco segundos.</dd></div>
+    <div class="g"><dt>8×100</dt><dd>Oito repetições de 100 m — oito vezes quatro piscinas de 25 m. O número na coluna <b>descanso</b> é a pausa entre as repetições, parado na borda.</dd></div>
+    <div class="g"><dt>Aquecimento</dt><dd>Os primeiros 300–450 m, sem olhar o relógio. Sobe temperatura e frequência cardíaca antes de qualquer esforço. Nunca corte.</dd></div>
+    <div class="g"><dt>Técnica</dt><dd>Blocos de 50 m em exercícios isolados — braçada alternada (<i>catch-up</i>), punho fechado, apoio de lado com 6 pernadas, <i>sculling</i>. Forma, não velocidade.</dd></div>
+    <div class="g"><dt>Série principal</dt><dd>O treino de verdade: onde a intensidade é prescrita e o pace é medido. Tudo antes prepara; tudo depois recupera.</dd></div>
+    <div class="g"><dt>Volta à calma</dt><dd>Os últimos 250–350 m em ritmo solto, alternando estilos. Baixa a frequência cardíaca de forma controlada. Conta no volume total.</dd></div>
+    <div class="g"><dt>Pace</dt><dd>Tempo por 100 m — a moeda da natação, como min/km na corrida. Pace de 2'25" em 400 m dá 9'40" no total.</dd></div>
+    <div class="g"><dt>CSS</dt><dd><i>Critical Swim Speed</i>. A maior velocidade que você sustenta em estado estável, estimada por dois contrarrelógios. É o seu <b>limiar</b> — a referência de onde partem todas as séries.</dd></div>
+    <div class="g"><dt>CSS+3"</dt><dd>Três segundos por 100 m <b>mais lento</b> que o CSS: logo abaixo do limiar, onde vive quase todo o trabalho aeróbio. <b>CSS−3"</b> é mais rápido — acima do limiar, custa caro, usa-se pouco.</dd></div>
+    <div class="g"><dt>Solto</dt><dd>Esforço baixo com <b>braçada longa</b>, não simplesmente devagar. Sem alvo de tempo, FC abaixo de 120–125. Veja a explicação completa abaixo.</dd></div>
+    <div class="g"><dt>Máximo sustentável</dt><dd>O ritmo mais forte que você mantém <b>uniforme</b> até o fim. Não é tiro. Se a segunda metade despencar, o teste não vale.</dd></div>
+    <div class="g"><dt>Negative split</dt><dd>Segunda metade mais rápida que a primeira. Ensina a começar contido — o erro mais comum de quem volta.</dd></div>
+  </dl>
+</div>
+</details>
+
+<details class="ref">
+  <summary>Os descansos <span class="sub">e o que &eacute; nado solto</span></summary>
+  <div class="refbody">
+<div class="rests">
+    <div class="r"><span class="amt">15–30"</span><span class="txt"><b>Entre repetições.</b> O valor na coluna <i>descanso</i> de cada bloco. Parado na borda, óculos no lugar. É o único descanso prescrito com precisão — encurtá-lo muda o estímulo.</span></div>
+    <div class="r"><span class="amt">30–90"</span><span class="txt"><b>Entre blocos.</b> Marcado nas faixas âmbar dentro de cada sessão. Tempo de ajustar óculos, pegar o pé de pato, beber água. Não passe do que está escrito: a densidade é o que faz a sessão valer.</span></div>
+    <div class="r"><span class="amt">3 min</span><span class="txt"><b>Antes de contrarrelógio.</b> Precisa estar aquecido e descansado ao mesmo tempo.</span></div>
+    <div class="r"><span class="amt">5 min</span><span class="txt"><b>Entre contrarrelógios.</b> Nadando solto, não parado. É o que permite o segundo teste ser honesto — se encurtar, o CSS sai errado e contamina as nove semanas.</span></div>
+    <div class="r"><span class="amt">sem parar</span><span class="txt"><b>Emenda.</b> Blocos que continuam direto, sem tocar a borda para descansar — aparecem em cinza nas sessões.</span></div>
+  </div>
+
+  <div class="callout">
+    <h3>O que é nado solto</h3>
+    <p><b>Não é "o mais lento possível".</b> Solto é esforço baixo com <b>braçada longa e cadência baixa</b> — o oposto de braçada curta e apressada. A velocidade cai como consequência da soltura, não como objetivo. Percepção de esforço 2–3 de 10; frequência cardíaca abaixo de 120–125; você consegue conversar na borda sem ofegar.</p>
+    <p><b>Nos 5 min entre contrarrelógios, o ponto é estar em movimento.</b> Recuperação ativa em intensidade muito baixa remove lactato mais rápido que descanso parado, e mantém você aquecido. Parar de vez esfria e piora o segundo teste. Mas se você acelerar, come a recuperação — daí o intervalo de pace na calibragem em vez de um número solto.</p>
+    <p><b>Cuidado específico da sua lombar:</b> crawl muito lento é pior que crawl moderado para a posição do quadril. Sem velocidade não há sustentação hidrodinâmica, o quadril afunda, e a compensação instintiva é levantar a cabeça e arquear a lombar. Então: mantenha a cabeça baixa com o olhar para o fundo, alongue a braçada, e se sentir o quadril caindo nos trechos soltos longos, ponha o pé de pato. Vale o mesmo para as costas soltas.</p>
+  </div>
+</div>
+</details>
+
+<details class="ref">
+  <summary>S&aacute;bado manda no domingo <span class="sub">acoplamento semanal</span></summary>
+  <div class="refbody">
+<div class="rests">
+    <div class="r"><span class="amt">Sáb forte</span><span class="txt">Corrida longa ou intensa no sábado → domingo é <b>volume em intensidade baixa</b>. Troque a série prescrita por nado contínuo, FC 130–138.</span></div>
+    <div class="r"><span class="amt">Sáb leve</span><span class="txt">Corrida curta ou solta → domingo é a <b>sessão de qualidade</b> como está escrita, FC 142–150 nas séries.</span></div>
+    <div class="r"><span class="amt">Nunca</span><span class="txt">Duas sessões de qualidade em dias seguidos. E os domingos <b>04</b> e <b>12</b> pedem sábado leve na véspera — contrarrelógio em pernas cansadas produz um número inútil.</span></div>
+  </div>
+  <p class="note-s" style="margin-top:16px">Seg Pilates · Ter corrida · Sex Pilates · Sáb corrida · <b>Dom natação</b>. Sábado e domingo colados são aceitáveis, com Pilates na segunda funcionando como descarga.</p>
+</div>
+</details>
+
+<details class="ref" open>
+  <summary>Freio <span class="sub">quando parar de subir</span></summary>
+  <div class="refbody">
+  <div class="brake">
+    <h2>Freio</h2>
+    <ul>
+      <li><b>Desconforto de ombro que dura além do treino:</b> repita o volume do domingo anterior em vez de subir. Duas ocorrências seguidas: corte 20% e reconstrua.</li>
+      <li><b>Qualquer sintoma lombar:</b> saia da água. Não tente "nadar leve para soltar" — sem velocidade o quadril afunda e a lombar arqueia mais, não menos.</li>
+      <li><b>Peito:</b> fora do plano. É o único estilo que soma extensão lombar de fim de amplitude, ciclo repetido de flexão-extensão e torque de quadril na pernada.</li>
+      <li><b>Prancha com braços à frente:</b> fora. Hiperextensão lombar sustentada por minutos. Use pernada de lado ou de costas com <i>snorkel</i> frontal.</li>
+      <li><b>Costas sem pé de pato: não.</b> Com máximo de 3'19"/100, qualquer bloco moderado de costas cai abaixo do piso lombar de 3'10". O pé de pato é o que mantém o quadril alto — é condição, não acessório.</li>
+      <li><b>Um equipamento por bloco.</b> Pull buoy + palmar juntos é o pico de carga de ombro sem nenhum suporte de pernada.</li>
+      <li><b>Registre cada bloco separado</b> no relógio. Sem isso, o reteste da sessão 12 volta a ser um sistema de duas equações com três incógnitas — o problema que travou a leitura das sessões 2 e 3.</li>
+    </ul>
+    <p class="note-s" style="margin-top:18px;color:#DCE9EC">A tabela é uma hipótese. O ombro e a lombar são os dados. Vale confirmar a progressão com quem acompanha o retorno ao treino.</p>
+  </div>
+</div>
+</details>
+
+</section>
+
+<footer class="end">
+  <p>Plano de nove domingos &middot; nata&ccedil;&atilde;o como alternativa cardio de baixo impacto lombar. Os alvos de pace v&ecirc;m dos seus pr&oacute;prios contrarrel&oacute;gios &mdash; refa&ccedil;a a calibragem na sess&atilde;o 12.</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  /* ---- calibragem ---- */
+  var t400=document.getElementById('t400'), t200=document.getElementById('t200'),
+      warn=document.getElementById('warn'), cssVal=document.getElementById('cssVal'),
+      soltoV=document.getElementById('soltoV'), soltoV2=document.getElementById('soltoV2'),
+      zones={6:'z6',4:'z4',3:'z3',2:'z2','-3':'zm3'};
+
+  function parse(s){
+    if(!s) return null;
+    s=s.trim().replace(/["']/g,':').replace(/[,.]/g,':').replace(/:+/g,':').replace(/:$/,'');
+    var p=s.split(':').filter(function(x){return x!==''});
+    if(!p.length) return null;
+    if(p.length===1){ var n=parseFloat(p[0]); return (isNaN(n)||n>=100)?null:n; }
+    var m=parseInt(p[0],10), sec=parseFloat(p[1]);
+    if(isNaN(m)||isNaN(sec)||sec>=60) return null;
+    return m*60+sec;
+  }
+  function fmt(sec){
+    if(sec==null||!isFinite(sec)||sec<=0) return '\u2014';
+    var m=Math.floor(sec/60), s=Math.round(sec-m*60);
+    if(s===60){m++;s=0}
+    return m+"'"+(s<10?'0':'')+s+'"';
+  }
+  function render(){
+    var a=parse(t400.value), b=parse(t200.value), ok=false, pace=null;
+    if(a!=null&&b!=null&&a>b){ pace=(a-b)/2; ok=pace>40&&pace<300; }
+    warn.classList.toggle('on', a!=null&&b!=null&&!ok);
+    cssVal.textContent = ok?fmt(pace):'\u2014';
+    soltoV.textContent = ok?fmt(pace+25):'\u2014';
+    soltoV2.textContent = ok?fmt(pace+40):'\u2014';
+    for(var k in zones){ document.getElementById(zones[k]).textContent = ok?fmt(pace+Number(k)):'\u2014'; }
+    document.querySelectorAll('.tgt').forEach(function(el){
+      el.textContent = ok?fmt((pace+Number(el.dataset.off))*Number(el.dataset.dist)/100):'\u2014';
+    });
+  }
+  t400.addEventListener('input',render);
+  t200.addEventListener('input',render);
+
+  var zbtn=document.getElementById('zbtn'), zwrap=document.getElementById('zwrap');
+  zbtn.addEventListener('click',function(){
+    var on=zwrap.classList.toggle('on');
+    zbtn.setAttribute('aria-expanded', on?'true':'false');
+  });
+
+  /* ---- seletor de sess\u00e3o ---- */
+  var sess=[].slice.call(document.querySelectorAll('.sess')),
+      tabs=document.getElementById('tabs'), max=0;
+  var meta=sess.map(function(a){
+    var no=a.querySelector('.sess-no').textContent.trim();
+    var vol=parseInt(a.querySelector('.sess-vol b').textContent.replace(/\D/g,''),10);
+    var dm=a.querySelector('.sess-vol span').textContent.match(/(\d+)\s*min/);
+    if(vol>max) max=vol;
+    return {no:no, vol:vol, min:dm?Number(dm[1]):0, el:a};
+  });
+  meta.forEach(function(m,i){
+    var b=document.createElement('button');
+    b.className='tab'+(m.el.classList.contains('done')?' done':''); b.type='button'; b.setAttribute('role','tab'); b.dataset.i=i;
+    b.innerHTML='<span class="tn">'+m.no+'</span><span class="tv">'+m.vol.toLocaleString('pt-BR')+'</span>'+
+                '<span class="bar" style="width:'+Math.round(m.min/70*36)+'px"></span>';
+    tabs.appendChild(b);
+  });
+  var all=document.createElement('button');
+  all.className='tab wide'; all.type='button'; all.setAttribute('role','tab'); all.dataset.i='all';
+  all.innerHTML='<span class="tn">Todas</span>';
+  tabs.appendChild(all);
+
+  function select(v){
+    [].slice.call(tabs.children).forEach(function(b){
+      b.setAttribute('aria-selected', b.dataset.i===String(v)?'true':'false');
+    });
+    meta.forEach(function(m,i){ m.el.hidden = (v!=='all' && i!==Number(v)); });
+  }
+  tabs.addEventListener('click',function(e){
+    var b=e.target.closest('.tab'); if(!b) return;
+    select(b.dataset.i);
+    if(b.dataset.i!=='all') window.scrollTo({top:0,behavior:'smooth'});
+  });
+  select(2);
+  render();
+})();
+</script>
+
+</body>
+</html>
