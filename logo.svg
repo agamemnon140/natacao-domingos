@@ -6,23 +6,23 @@
     </linearGradient>
   </defs>
   <rect width="512" height="512" rx="104" fill="url(#bg)"/>
-  <!-- nove domingos: grade 3x3 · vermelho = contrarrelógio (primeira e última) -->
-  <g>
-    <circle cx="140" cy="128" r="36" fill="#EE4B3C"/>
-    <circle cx="256" cy="128" r="36" fill="#2FC6B4"/>
-    <circle cx="372" cy="128" r="36" fill="#2FC6B4"/>
-    <circle cx="140" cy="228" r="36" fill="#2FC6B4"/>
-    <circle cx="256" cy="228" r="36" fill="#2FC6B4"/>
-    <circle cx="372" cy="228" r="36" fill="#2FC6B4"/>
-    <circle cx="140" cy="328" r="36" fill="#2FC6B4"/>
-    <circle cx="256" cy="328" r="36" fill="#2FC6B4"/>
-    <circle cx="372" cy="328" r="36" fill="#EE4B3C"/>
-  </g>
-  <!-- água -->
-  <g fill="none" stroke="#7FA6B6" stroke-width="18" stroke-linecap="round">
-    <path d="M84 415 q 43 -26 86 0 t 86 0 t 86 0 t 86 0"/>
-  </g>
-  <g fill="none" stroke="#1E5570" stroke-width="18" stroke-linecap="round">
-    <path d="M84 458 q 43 -26 86 0 t 86 0 t 86 0 t 86 0"/>
+
+  <!-- braço submerso (puxada), atrás da água -->
+  <path d="M350 296 q 14 46 -12 68" fill="none" stroke="#1E5570" stroke-width="26" stroke-linecap="round"/>
+
+  <!-- braço de recuperação: cotovelo alto, entrada à frente -->
+  <path d="M208 306 Q 296 158 430 286" fill="none" stroke="#EAF2F4" stroke-width="30" stroke-linecap="round"/>
+
+  <!-- cabeça com touca -->
+  <circle cx="336" cy="276" r="37" fill="#EE4B3C"/>
+
+  <!-- linha d'água -->
+  <path d="M56 332 q 40 -24 80 0 t 80 0 t 80 0 t 80 0 t 80 0" fill="none" stroke="#2FC6B4" stroke-width="20" stroke-linecap="round"/>
+  <path d="M96 390 q 40 -24 80 0 t 80 0 t 80 0 t 80 0" fill="none" stroke="#17506B" stroke-width="20" stroke-linecap="round"/>
+
+  <!-- respingo da pernada -->
+  <g stroke="#7FA6B6" stroke-width="14" stroke-linecap="round">
+    <path d="M96 296 l 14 -26"/>
+    <path d="M132 290 l 10 -30"/>
   </g>
 </svg>
