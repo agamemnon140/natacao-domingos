@@ -242,7 +242,8 @@ details.ref>summary .sub{font-family:"Barlow Condensed",sans-serif;font-weight:6
 <div class="calcbar">
   <div class="field"><label for="t400">400 m</label><input id="t400" type="text" inputmode="numeric" value="10:30" placeholder="10:30" autocomplete="off"></div>
   <div class="field"><label for="t200">200 m</label><input id="t200" type="text" inputmode="numeric" value="4:55" placeholder="4:55" autocomplete="off"></div>
-  <div class="res"><span class="v" id="cssVal">&mdash;</span><span class="u">CSS &middot; provis&oacute;rio<br>min/100 m</span></div>
+  <div class="field"><label for="tadj">CSS ajustado</label><input id="tadj" type="text" inputmode="numeric" value="2:38" placeholder="2:38" autocomplete="off"></div>
+  <div class="res"><span class="v" id="cssVal">&mdash;</span><span class="u">CSS em uso<br>min/100 m</span></div>
   <button class="zbtn" id="zbtn" aria-expanded="false" aria-controls="zwrap">Zonas</button>
 </div>
 <div class="zwrap" id="zwrap">
@@ -253,6 +254,7 @@ details.ref>summary .sub{font-family:"Barlow Condensed",sans-serif;font-weight:6
     <div class="zone"><span class="k">CSS+2&quot;</span><span class="t" id="z2">&mdash;</span></div>
     <div class="zone"><span class="k">CSS&minus;3&quot;</span><span class="t" id="zm3">&mdash;</span></div>
   </div>
+  <p class="note-s"><b>CSS ajustado</b> sobrescreve a conta do 400/200. Em 06 set foi fixado em 2'38": os 5&times;100 da sess&atilde;o 06 sa&iacute;ram a 2'36"&ndash;2'43" sem dificuldade, incompat&iacute;vel com um limiar de 2'47". Apague o campo para voltar &agrave; conta pura.</p>
   <p class="note-s">Ritmo <b>solto</b>: <span id="soltoV">&mdash;</span> a <span id="soltoV2">&mdash;</span> por 100 m &mdash; <b>nunca mais lento que 3'10&quot;</b>. Conta do CSS: <code>(T400 &minus; T200) &divide; 2</code>.</p>
   <p class="warn" id="warn">O 400 tem de ser mais lento que o 200. Confira os dois tempos.</p>
 </div>
@@ -312,28 +314,24 @@ details.ref>summary .sub{font-family:"Barlow Condensed",sans-serif;font-weight:6
     </div>
   </article>
 
-  <article class="sess">
-    <div class="sess-head"><div class="sess-no">06</div><div class="sess-meta"><span class="when">domingo 3 · 50 min</span><h3>Densidade</h3></div><div class="sess-vol"><b>1.400</b><span>m · 50 min</span></div></div>
+  <article class="sess done">
+    <div class="sess-head"><div class="sess-no">06</div><div class="sess-meta"><span class="when">feita · 6 set · ~50 min</span><h3>Densidade</h3></div><div class="sess-vol"><b>1.400</b><span>m · 50 min</span></div></div>
     <div class="strip"><i class="warm" style="flex:200"></i><i class="back" style="flex:100"></i><i class="drill" style="flex:200"></i><i class="main" style="flex:500"></i><i class="back" style="flex:200"></i><i class="warm" style="flex:200"></i></div>
     <div class="blocks">
-      <div class="bhead"><span class="h1c">distância</span><span class="h2c">o quê</span><span class="h3c">descanso</span></div>
+      <div class="bhead"><span class="h1c">distância</span><span class="h2c">como foi</span><span class="h3c">resultado</span></div>
       <div class="b"><span class="d">200 m</span><span class="w">crawl solto</span><span class="rs none">—</span></div>
-      <div class="gap zero"><span class="ga">emenda</span><span class="gt">segue direto</span></div>
+      <div class="gap zero"><span class="ga">emenda</span><span class="gt">seguiu direto</span></div>
       <div class="b is-back"><span class="d">100 m</span><span class="w">costas solto</span><span class="rs none">—</span></div>
-      <div class="gap"><span class="ga">40"</span><span class="gt">colocar o pé de pato</span></div>
-      <div class="b"><span class="d">2×50</span><span class="w">apoio de lado, 6 pernadas · <b>pé de pato</b></span><span class="rs">15"</span></div>
-      <div class="gap"><span class="ga">45"</span><span class="gt">tirar o pé de pato</span></div>
-      <div class="b"><span class="d">2×50</span><span class="w">crawl contando braçadas <em>· tirar uma por rep</em></span><span class="rs">15"</span></div>
-      <div class="gap"><span class="ga">60"</span><span class="gt">antes da série</span></div>
-      <div class="b"><span class="d">5×100</span><span class="w">crawl @ CSS+3" → <span class="p tgt" data-off="3" data-dist="100">—</span> <em>· 50 em</em> <span class="p tgt" data-off="3" data-dist="50">—</span></span><span class="rs">20"</span></div>
-      <div class="gap"><span class="ga">60"</span><span class="gt">colocar o pé de pato</span></div>
-      <div class="b is-back"><span class="d">200 m</span><span class="w">costas contínuo, moderado · <b>pé de pato obrigatório</b></span><span class="rs none">—</span></div>
-      <div class="gap"><span class="ga">30"</span><span class="gt">tirar o pé de pato</span></div>
+      <div class="b"><span class="d">2×50</span><span class="w">apoio de lado, 6 pernadas · pé de pato</span><span class="rs">15"</span></div>
+      <div class="b"><span class="d">2×50</span><span class="w">crawl contando braçadas</span><span class="rs">15"</span></div>
+      <div class="b"><span class="d">5×100</span><span class="w">crawl · alvo 2'50" → saíram <b>2'36"–2'43"</b>, sem grande dificuldade <em>— amplitude caiu de 20" para 7"; pace médio ~2'40" = 10" abaixo do alvo com só 20" de pausa</em></span><span class="rs">20"</span></div>
+      <div class="b is-back"><span class="d">200 m</span><span class="w">costas moderado · pé de pato</span><span class="rs none">—</span></div>
       <div class="b"><span class="d">200 m</span><span class="w">alternado, solto</span><span class="rs none">—</span></div>
     </div>
     <div class="foot">
-      <p><span class="lab">Execução</span>Primeira repetição a mais lenta da série, de propósito. Cheque o relógio a cada 50 — quatro leituras por 100 chegam tarde demais para corrigir.</p>
-      <p><span class="lab">Nota</span>As costas vêm antes da volta à calma, nunca nos últimos 300 m — sob fadiga o quadril afunda e a compensação é arquear a lombar.</p>
+      <p><span class="lab">Leitura</span>5×100 a CSS−10" com 20" de pausa "sem tanta dificuldade" não existe com CSS certo — nesse ritmo você estaria no domínio severo e a 4ª e 5ª repetições doeriam. O CSS de 2'47" estava lento, na direção que o 400 mal ritmado já sugeria (o melhor parcial do teste, 1'15", dava 2'30"/100).</p>
+      <p><span class="lab">Ajuste</span><b>CSS fixado em 2'38"</b> (os 100 feitos ficam em CSS−2" a CSS+5", coerente com esforço moderado-forte). Parte do salto é erro de medição, parte é readaptação real das três primeiras semanas — a checagem da sessão 08 diz qual peso tem cada uma.</p>
+      <p><span class="lab">Execução</span>Amplitude de 7" ainda é alta para 100 m (alvo: 3–4"). Melhorou muito. Segue a regra da primeira repetição mais lenta.</p>
     </div>
   </article>
 
@@ -378,7 +376,7 @@ details.ref>summary .sub{font-family:"Barlow Condensed",sans-serif;font-weight:6
       <div class="b"><span class="d">200 m</span><span class="w">alternado, solto</span><span class="rs none">—</span></div>
     </div>
     <div class="foot">
-      <p><span class="lab">Checagem</span>Se os 800 saírem confortáveis no alvo e a 2ª metade vier claramente mais rápida, o CSS de 2'47" está lento — desconte 4" por 100 nas sessões 09 a 11. Se a 2ª metade despencar, mantenha.</p>
+      <p><span class="lab">Checagem</span>Agora valida o CSS ajustado de 2'38". 800 confortável no alvo com 2ª metade mais rápida → 2'38" confirmado (ou até conservador: desconte mais 2–3"). 2ª metade despencando ou parada antes do fim → 2'38" foi otimista, volte para 2'42".</p>
       <p><span class="lab">Por que estável</span>Volume próximo ao da sessão 07 de propósito. A semana sem aumento existe para a intensidade subir sozinha — e para o ombro, que adapta mais devagar que o sistema cardiovascular, ter uma exposição repetida em vez de mais uma nova.</p>
     </div>
   </article>
@@ -680,7 +678,7 @@ details.ref>summary .sub{font-family:"Barlow Condensed",sans-serif;font-weight:6
 <script>
 (function(){
   /* ---- calibragem ---- */
-  var t400=document.getElementById('t400'), t200=document.getElementById('t200'),
+  var t400=document.getElementById('t400'), t200=document.getElementById('t200'), tadj=document.getElementById('tadj'),
       warn=document.getElementById('warn'), cssVal=document.getElementById('cssVal'),
       soltoV=document.getElementById('soltoV'), soltoV2=document.getElementById('soltoV2'),
       zones={6:'z6',4:'z4',3:'z3',2:'z2','-3':'zm3'};
@@ -705,6 +703,7 @@ details.ref>summary .sub{font-family:"Barlow Condensed",sans-serif;font-weight:6
     var a=parse(t400.value), b=parse(t200.value), ok=false, pace=null;
     if(a!=null&&b!=null&&a>b){ pace=(a-b)/2; ok=pace>40&&pace<300; }
     warn.classList.toggle('on', a!=null&&b!=null&&!ok);
+    var adj=parse(tadj.value); if(adj!=null&&adj>40&&adj<300){ pace=adj; ok=true; }
     cssVal.textContent = ok?fmt(pace):'\u2014';
     soltoV.textContent = ok?fmt(pace+25):'\u2014';
     soltoV2.textContent = ok?fmt(pace+40):'\u2014';
@@ -715,6 +714,7 @@ details.ref>summary .sub{font-family:"Barlow Condensed",sans-serif;font-weight:6
   }
   t400.addEventListener('input',render);
   t200.addEventListener('input',render);
+  tadj.addEventListener('input',render);
 
   var zbtn=document.getElementById('zbtn'), zwrap=document.getElementById('zwrap');
   zbtn.addEventListener('click',function(){
@@ -755,7 +755,7 @@ details.ref>summary .sub{font-family:"Barlow Condensed",sans-serif;font-weight:6
     select(b.dataset.i);
     if(b.dataset.i!=='all') window.scrollTo({top:0,behavior:'smooth'});
   });
-  select(2);
+  select(3);
   render();
 })();
 </script>

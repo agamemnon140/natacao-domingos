@@ -7,7 +7,7 @@ A página principal é o **`index.html`** — plano interativo com calculadora d
 ## Princípios do plano
 
 1. **Tempo é o teto, volume é consequência.** Sessões regulares ≤ 55 min (calibrado pela sessão 04, que levou 52 min). O volume flutua entre 1.350 e 1.550 m conforme a intensidade.
-2. **Todas as séries partem do CSS** (Critical Swim Speed), medido em contrarrelógios de 400 e 200 m: `CSS = (T400 − T200) ÷ 2` por 100 m. Valor atual: **2'47"/100 m (provisório)**.
+2. **Todas as séries partem do CSS** (Critical Swim Speed), medido em contrarrelógios de 400 e 200 m: `CSS = (T400 − T200) ÷ 2` por 100 m. Valor atual: **2'38"/100 m** (ajustado em 06 set — a conta do teste dava 2'47", refutada pela sessão 06).
 3. **Crawl carrega a carga (~70%), costas dá variedade (~25–30%), peito fica fora** (extrusão L5-S1). Costas sempre com **pé de pato** — máximo de costas medido em 3'19"/100 significa que blocos moderados cairiam abaixo do piso lombar de 3'10"/100.
 4. **O portão para subir volume é a contagem de braçadas por 50 m**, não a tabela: o custo articular do ombro é número de braçadas, não metros.
 5. **Freio:** desconforto de ombro que dura além do treino → repete o volume anterior. Sintoma lombar → sai da água.
@@ -18,7 +18,8 @@ A página principal é o **`index.html`** — plano interativo com calculadora d
 |---|---|---|
 | 04 | 22 ago 2026 | ✅ Teste de crawl — CSS 2'47" provisório |
 | 05 | 29 ago 2026 | ✅ Teste de costas — 3'19"/100, razão 1,35–1,40× |
-| 06–11 | — | Prescritas (ver `plano.md` ou `index.html`) |
+| 06 | 6 set 2026 | ✅ 5×100 a 2'36"–2'43" → CSS ajustado para 2'38" |
+| 07–11 | — | Prescritas (ver `plano.md` ou `index.html`) |
 | 12 | — | Reteste (10 min entre contrarrelógios; costas em domingo separado) |
 
 ## Como publicar no GitHub Pages
