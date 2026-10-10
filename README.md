@@ -19,7 +19,10 @@ A página principal é o **`index.html`** — plano interativo com calculadora d
 | 04 | 22 ago 2026 | ✅ Teste de crawl — CSS 2'47" provisório |
 | 05 | 29 ago 2026 | ✅ Teste de costas — 3'19"/100, razão 1,35–1,40× |
 | 06 | 6 set 2026 | ✅ 5×100 a 2'36"–2'43" → CSS ajustado para 2'38" |
-| 07–11 | — | Prescritas (ver `plano.md` ou `index.html`) |
+| R | fim set 2026 | ✅ Retorno pós-ombro (2 semanas paradas) — 6×100 a ~2'34" |
+| 07 | out 2026 | ✅ 3×200 a 5'19" → 5'15" → 5'08" (pausas longas) |
+| 08 | out 2026 | ✅ 800 em 11'50" + 11'00" — checagem inconclusiva |
+| 09–11 | — | Prescritas (ver `plano.md` ou `index.html`) |
 | 12 | — | Reteste (10 min entre contrarrelógios; costas em domingo separado) |
 
 ## Como publicar no GitHub Pages
