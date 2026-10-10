@@ -11,14 +11,14 @@ Descansos: 15–30" entre repetições (prescrito) · 30–90" entre blocos · 3
 - 60" (pé de pato) → 200 costas moderado · 30" (tirar)
 - 200 alternado solto
 
-## Sessão 07 — Repetições longas · 1.500 m · ~53 min
+## Sessão 07 — Repetições longas ✅ feita (5'19" · 5'15" · 5'08") · 1.500 m · ~53 min
 - Mesmo início da 06
 - **3×200 crawl @ 5'24" (CSS+4" = 2'42"/100, 50 em 1'21")** c/ 30"
 - 200 costas moderado c/ pé de pato
 - 200 alternado solto
 - Se o 3º 200 vier >5" acima do alvo, partida rápida — corrigir na semana seguinte
 
-## Sessão 08 — Consolidação + checagem do CSS · 1.550 m · ~53 min
+## Sessão 08 — Consolidação + checagem do CSS ✅ feita (11'50" + 11'00") · 1.550 m · ~53 min
 - 250 crawl solto (100 c/ pé de pato) · técnica padrão
 - **800 crawl contínuo, negative split**: 1ª metade @ 2'46"/100, 2ª @ 2'42"/100
 - 100 costas solto → 200 alternado solto
