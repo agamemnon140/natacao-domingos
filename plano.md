@@ -24,7 +24,7 @@ Descansos: 15–30" entre repetições (prescrito) · 30–90" entre blocos · 3
 - 100 costas solto → 200 alternado solto
 - **Checagem:** valida o 2'38". Confortável com 2ª metade mais rápida → confirmado (ou desconte mais 2–3"). Despencou → volte para 2'42".
 
-## Sessão 09 — Ritmo · 1.500 m · ~54 min
+## Sessão 09 — Ritmo ✅ feita (8×75 a 1'55"–2'00") · 1.500 m · ~54 min
 - Início padrão · **8×75 crawl @ 2'00" (CSS+2")** c/ 20" (50 em 1'20")
 - 200 costas c/ pé de pato · 200 alternado solto
 
