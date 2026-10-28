@@ -28,7 +28,7 @@ Descansos: 15–30" entre repetições (prescrito) · 30–90" entre blocos · 3
 - Início padrão · **8×75 crawl @ 2'00" (CSS+2")** c/ 20" (50 em 1'20")
 - 200 costas c/ pé de pato · 200 alternado solto
 
-## Sessão 10 — Limiar · 1.550 m · ~55 min
+## Sessão 10 — Limiar ✅ feita (4×150 a 3'50"–4'00") · 1.550 m · ~55 min
 - Início padrão · **4×150 crawl @ 4'01" (CSS+3")** c/ 25"
 - 250 costas moderado c/ pé de pato · 200 alternado solto
 
