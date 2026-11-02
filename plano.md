@@ -32,7 +32,7 @@ Descansos: 15–30" entre repetições (prescrito) · 30–90" entre blocos · 3
 - Início padrão · **4×150 crawl @ 4'01" (CSS+3")** c/ 25"
 - 250 costas moderado c/ pé de pato · 200 alternado solto
 
-## Sessão 11 — Acima do limiar · 1.500 m · ~55 min
+## Sessão 11 — Acima do limiar ✅ feita (10×50 a 1'05"–1'10") · 1.500 m · ~55 min
 - 250 crawl solto · técnica padrão
 - **10×50 crawl @ 1'17" (CSS−3")** c/ 20"
 - 90" → 200 crawl moderado c/ **palmar pequeno** (só se ombro 100% silencioso nas 7 semanas; nunca palmar + pull buoy)
