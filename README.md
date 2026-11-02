@@ -24,7 +24,7 @@ A página principal é o **`index.html`** — plano interativo com calculadora d
 | 08 | out 2026 | ✅ 800 em 11'50" + 11'00" — checagem inconclusiva |
 | 09 | 18 out 2026 | ✅ 8×75 a 1'55"–2'00" (alvo 2'00") |
 | 10 | 25 out 2026 | ✅ 4×150 a 3'50"–4'00" (alvo 4'01") |
-| 11 | — | Prescrita (ver `plano.md` ou `index.html`) |
+| 11 | 1 nov 2026 | ✅ 10×50 a 1'05"–1'10" (alvo 1'18") |
 | 12 | — | Reteste (10 min entre contrarrelógios; costas em domingo separado) |
 
 ## Como publicar no GitHub Pages
