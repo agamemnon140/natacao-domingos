@@ -7,7 +7,7 @@ A página principal é o **`index.html`** — plano interativo com calculadora d
 ## Princípios do plano
 
 1. **Tempo é o teto, volume é consequência.** Sessões regulares ≤ 55 min (calibrado pela sessão 04, que levou 52 min). O volume flutua entre 1.350 e 1.550 m conforme a intensidade.
-2. **Todas as séries partem do CSS** (Critical Swim Speed), medido em contrarrelógios de 400 e 200 m: `CSS = (T400 − T200) ÷ 2` por 100 m. Valor atual: **2'38"/100 m** (ajustado em 06 set — a conta do teste dava 2'47", refutada pela sessão 06).
+2. **Todas as séries partem do CSS** (Critical Swim Speed), medido em contrarrelógios de 400 e 200 m: `CSS = (T400 − T200) ÷ 2` por 100 m. Valor atual: **2'45"/100 m** para blocos contínuos (reteste de 8 nov: 400 em 10'05", 200 em 4'30" → 2'47", igual a agosto; o ajuste de setembro para 2'38" superestimava o limiar).
 3. **Crawl carrega a carga (~70%), costas dá variedade (~25–30%), peito fica fora** (extrusão L5-S1). Costas sempre com **pé de pato** — máximo de costas medido em 3'19"/100 significa que blocos moderados cairiam abaixo do piso lombar de 3'10"/100.
 4. **O portão para subir volume é a contagem de braçadas por 50 m**, não a tabela: o custo articular do ombro é número de braçadas, não metros.
 5. **Freio:** desconforto de ombro que dura além do treino → repete o volume anterior. Sintoma lombar → sai da água.
@@ -25,7 +25,7 @@ A página principal é o **`index.html`** — plano interativo com calculadora d
 | 09 | 18 out 2026 | ✅ 8×75 a 1'55"–2'00" (alvo 2'00") |
 | 10 | 25 out 2026 | ✅ 4×150 a 3'50"–4'00" (alvo 4'01") |
 | 11 | 1 nov 2026 | ✅ 10×50 a 1'05"–1'10" (alvo 1'18") |
-| 12 | — | Reteste (10 min entre contrarrelógios; costas em domingo separado) |
+| 12 | 8 nov 2026 | ✅ Reteste: 400 em 10'05", 200 em 4'30" → CSS 2'47" (D′ ~24 → ~39 m) |
 
 ## Como publicar no GitHub Pages
 
