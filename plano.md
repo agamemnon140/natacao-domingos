@@ -38,7 +38,7 @@ Descansos: 15–30" entre repetições (prescrito) · 30–90" entre blocos · 3
 - 90" → 200 crawl moderado c/ **palmar pequeno** (só se ombro 100% silencioso nas 7 semanas; nunca palmar + pull buoy)
 - 200 costas solto · 150 alternado solto
 
-## Sessão 12 — Reteste · 1.450 m · ~61 min
+## Sessão 12 — Reteste ✅ feita (400 em 10'05", 200 em 4'30" → CSS 2'47") · 1.450 m · ~61 min
 - 300 crawl solto → 100 costas solto · técnica padrão
 - 3 min → **400 crawl máximo** → **10 min solto** → **200 crawl máximo**
 - 250 alternado solto

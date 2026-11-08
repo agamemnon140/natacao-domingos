@@ -240,9 +240,9 @@ details.ref>summary .sub{font-family:"Barlow Condensed",sans-serif;font-weight:6
 </header>
 
 <div class="calcbar">
-  <div class="field"><label for="t400">400 m</label><input id="t400" type="text" inputmode="numeric" value="10:30" placeholder="10:30" autocomplete="off"></div>
-  <div class="field"><label for="t200">200 m</label><input id="t200" type="text" inputmode="numeric" value="4:55" placeholder="4:55" autocomplete="off"></div>
-  <div class="field"><label for="tadj">CSS ajustado</label><input id="tadj" type="text" inputmode="numeric" value="2:38" placeholder="2:38" autocomplete="off"></div>
+  <div class="field"><label for="t400">400 m</label><input id="t400" type="text" inputmode="numeric" value="10:05" placeholder="10:05" autocomplete="off"></div>
+  <div class="field"><label for="t200">200 m</label><input id="t200" type="text" inputmode="numeric" value="4:30" placeholder="4:30" autocomplete="off"></div>
+  <div class="field"><label for="tadj">CSS ajustado</label><input id="tadj" type="text" inputmode="numeric" value="2:45" placeholder="2:45" autocomplete="off"></div>
   <div class="res"><span class="v" id="cssVal">&mdash;</span><span class="u">CSS em uso<br>min/100 m</span></div>
   <button class="zbtn" id="zbtn" aria-expanded="false" aria-controls="zwrap">Zonas</button>
 </div>
@@ -254,7 +254,7 @@ details.ref>summary .sub{font-family:"Barlow Condensed",sans-serif;font-weight:6
     <div class="zone"><span class="k">CSS+2&quot;</span><span class="t" id="z2">&mdash;</span></div>
     <div class="zone"><span class="k">CSS&minus;3&quot;</span><span class="t" id="zm3">&mdash;</span></div>
   </div>
-  <p class="note-s"><b>CSS ajustado</b> sobrescreve a conta do 400/200. Em 06 set foi fixado em 2'38": os 5&times;100 da sess&atilde;o 06 sa&iacute;ram a 2'36"&ndash;2'43" sem dificuldade, incompat&iacute;vel com um limiar de 2'47". Apague o campo para voltar &agrave; conta pura.</p>
+  <p class="note-s"><b>CSS ajustado</b> sobrescreve a conta do 400/200. Em 8 nov o reteste deu 2'47" de novo (400 em 10'05", 200 em 4'30"); o campo usa <b>2'45"</b>. O ajuste de setembro para 2'38" superestimava o limiar. Apague o campo para voltar à conta pura.</p>
   <p class="note-s">Ritmo <b>solto</b>: <span id="soltoV">&mdash;</span> a <span id="soltoV2">&mdash;</span> por 100 m &mdash; <b>nunca mais lento que 3'10&quot;</b>. Conta do CSS: <code>(T400 &minus; T200) &divide; 2</code>.</p>
   <p class="warn" id="warn">O 400 tem de ser mais lento que o 200. Confira os dois tempos.</p>
 </div>
@@ -474,11 +474,11 @@ details.ref>summary .sub{font-family:"Barlow Condensed",sans-serif;font-weight:6
     </div>
   </article>
 
-  <article class="sess key">
-    <div class="sess-head"><div class="sess-no">12</div><div class="sess-meta"><span class="when">domingo 9 · 61 min</span><h3>Reteste</h3></div><div class="sess-vol"><b>1.450</b><span>m · 61 min</span></div></div>
+  <article class="sess key done">
+    <div class="sess-head"><div class="sess-no">12</div><div class="sess-meta"><span class="when">feita · 8 nov</span><h3>Reteste</h3></div><div class="sess-vol"><b>1.450</b><span>m · 61 min</span></div></div>
     <div class="strip"><i class="warm" style="flex:300"></i><i class="back" style="flex:100"></i><i class="drill" style="flex:200"></i><i class="rest"></i><i class="test" style="flex:400"></i><i class="rest"></i><i class="test" style="flex:200"></i><i class="warm" style="flex:250"></i></div>
     <div class="blocks">
-      <div class="bhead"><span class="h1c">distância</span><span class="h2c">o quê</span><span class="h3c">descanso</span></div>
+      <div class="bhead"><span class="h1c">distância</span><span class="h2c">como foi</span><span class="h3c">descanso</span></div>
       <div class="b"><span class="d">300 m</span><span class="w">crawl solto</span><span class="rs none">—</span></div>
       <div class="gap zero"><span class="ga">emenda</span><span class="gt">segue direto</span></div>
       <div class="b is-back"><span class="d">100 m</span><span class="w">costas solto</span><span class="rs none">—</span></div>
@@ -487,15 +487,16 @@ details.ref>summary .sub{font-family:"Barlow Condensed",sans-serif;font-weight:6
       <div class="gap"><span class="ga">45"</span><span class="gt">tirar o pé de pato</span></div>
       <div class="b"><span class="d">2×50</span><span class="w">crawl contando braçadas <em>· tirar uma por rep</em></span><span class="rs">15"</span></div>
       <div class="gap long"><span class="ga">3 min</span><span class="gt">preparar contrarrelógio</span></div>
-      <div class="b is-test"><span class="d">400 m</span><span class="w">crawl · máximo sustentável</span><span class="rs none">—</span></div>
+      <div class="b is-test"><span class="d">400 m</span><span class="w">crawl máximo · <b>10\'05"</b> (2\'31"/100) <em>— 25" melhor que agosto</em></span><span class="rs none">—</span></div>
       <div class="gap long"><span class="ga">10 min</span><span class="gt">nadando solto — dobrado em relação à sessão 04, que fatigou o 200</span></div>
-      <div class="b is-test"><span class="d">200 m</span><span class="w">crawl · máximo</span><span class="rs none">—</span></div>
+      <div class="b is-test"><span class="d">200 m</span><span class="w">crawl máximo · <b>4\'30"</b> (2\'15"/100) <em>— 25" melhor que agosto</em></span><span class="rs none">—</span></div>
       <div class="gap"><span class="ga">—</span><span class="gt"><b>o teste de costas sai desta sessão</b> · faça sozinho no domingo seguinte</span></div>
       <div class="b"><span class="d">250 m</span><span class="w">alternado, solto</span><span class="rs none">—</span></div>
     </div>
     <div class="foot">
-      <p><span class="lab">Execução</span>Contagem manual de voltas e relógio de parede. Não dependa da detecção automática — 10 s de erro em um dos tempos desloca o CSS em 5 s por 100 m.</p>
-      <p><span class="lab">O que verificar</span>Três números: o novo CSS, a contagem de braçadas por 50 comparada à da sessão 04, e a duração total. Se o CSS caiu, quase sempre é volume subindo rápido demais — não falta de intensidade.</p>
+      <p><span class="lab">CSS</span>(605 − 270) ÷ 2 = <b>2'47"/100</b>, o mesmo de agosto: os dois tempos melhoraram 25" e a diferença entre eles ficou igual.</p>
+      <p><span class="lab">Leitura</span>O ganho foi todo de velocidade e capacidade anaeróbia (a reserva acima do limiar, D′, subiu de ~24 m para ~39 m), não de limiar aeróbio. Explica por que as séries com pausa saíam bem abaixo do alvo e o 800 contínuo não. O ajuste para 2'38" em setembro superestimou o limiar.</p>
+      <p><span class="lab">Próximo</span>Usar <b>2'45"</b> para blocos contínuos. Foco do próximo ciclo: volume contínuo perto do CSS. Teste de costas no próximo domingo, separado.</p>
     </div>
   </article>
 
