@@ -19,7 +19,7 @@ O reteste de 8 nov mostrou que as 10 semanas do ciclo 1 melhoraram velocidade e 
 
 | Sessão | Bloco principal | Vol | Status |
 |---|---|---|---|
-| 13 | Teste de costas (200 máx, sem pé de pato) + 4×100 @ 2'48" c/ 15" | 1.300 | prevista |
+| 13 | Teste de costas (200 máx, sem pé de pato) + 4×100 @ 2'48" c/ 15" | 1.300 | ✅ 15 nov — costas ~7'00" (3'30"/100, pior que agosto); 4×100 a 2'25"–2'40" com 45–60" de pausa (tiro, não limiar) |
 | 14 | 4×200 @ 5'36" (CSS+3") c/ 20" | 1.500 | prevista |
 | 15 | 3×300 @ 8'27" (CSS+4") c/ 20" | 1.600 | prevista |
 | 16 | 2×400 @ 11'16" (CSS+4") c/ 30" | 1.500 | prevista |

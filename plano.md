@@ -20,7 +20,7 @@ Dois ciclos. O **ciclo 2 (sessões 13–20)** é o vigente; o ciclo 1 (06–12) 
 ### Estrutura fixa (sessões 14–19) · ~700 m · ~26 min
 200 crawl solto · 40" (colocar pé de pato) · 100 costas solto c/ pé de pato · 2×50 apoio de lado c/ pé de pato (15") · 45" (tirar) · 2×50 crawl contando braçadas (15") · 60" → **SÉRIE** → 60" (colocar pé de pato) · 100 costas solto c/ pé de pato · 30" (tirar) · 100 crawl solto.
 
-### Sessão 13 — Teste de costas + série curta · 1.300 m · ~52 min
+### Sessão 13 — Teste de costas + série curta ✅ feita 15 nov (costas ~7'00" · 4×100 a 2'25"–2'40" c/ pausa de 45–60") · 1.300 m · ~52 min
 - Aquecimento e técnica padrão
 - 3 min → **200 costas máximo, SEM pé de pato** (igual à 05; referência 6'35"–6'40" = 3'19"/100). Mede a razão costas/crawl, o termômetro do equilíbrio lateral — **não muda a regra do pé de pato**. Abortar se o quadril afundar ou a lombar acender no 2º 100.
 - 5 min nadando solto
