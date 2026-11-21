@@ -27,7 +27,7 @@ Dois ciclos. O **ciclo 2 (sessões 13–20)** é o vigente; o ciclo 1 (06–12) 
 - **4×100 crawl @ 2'48" (CSS+3")** c/ 15" · 50 em 1'24"
 - Volta à calma padrão
 
-### Sessão 14 — Repetições de 200 · 1.500 m · ~50 min
+### Sessão 14 — Repetições de 200 ✅ feita 21 nov (5'15" · 5'40" · 5'35" · 5'20" · pausa ~20–30" · FC até 169) · 1.500 m · ~50 min
 - **4×200 crawl @ 5'36" (CSS+3")** c/ 20" · 50 em 1'24"
 - Primeira sessão com pausa curta de verdade: a pausa é 20", não "até recuperar"
 
